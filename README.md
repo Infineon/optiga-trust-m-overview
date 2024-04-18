@@ -1,14 +1,15 @@
-# Infineon OPTIGA™ Trust M Overview
+# Infineon OPTIGA™ Trust M Overview Repository
 
-This repository aims to give an overview & documentation on the OPTIGA™ Trust M Product Family.
+This repository aims to give an overview & documentation on the [OPTIGA™ Trust M](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia) Product Family.
 
 It will link to various other repositories, which will handle the Get-Started Guides, Host Libraries or Example Applications.
 
-## Quick navigation
+## Navigation
 
-- [Quick navigation](#quick-navigation)
-- [Getting started](#getting-started)
-- [Product overview](#product-overview)
+- [Quick Overview](#quick-overview)
+  - [Getting started](#getting-started)
+  - [OPTIGA™ Trust M Host Library for C](#optiga-trust-m-host-library-for-c)
+- [Product Information](#product-information)
   - [Product image](#product-image)
   - [Key Features and Benefits](#key-features-and-benefits)
   - [Features table](#features-table)
@@ -28,17 +29,42 @@ It will link to various other repositories, which will handle the Get-Started Gu
   - [Useful articles](#useful-articles)
 - [Board assembly recommendations](#board-assembly-recommendations)
 
-## Getting started
-  * The following link will help getting started with the Optiga&trade; Trust M : 
-  [Getting Started Guide](https://github.com/Infineon/getstarted-optiga-trust-m)
-
-## Product overview
-
-### Product image
+# Quick Overview
 
 <img src="docs/images/optiga_trust_m_uson10.png" width="300" >
 
-### Key Features and Benefits
+The OPTIGA™ Trust M is a high-end security controller with Common Criteria EAL 6+ (high) certified hardware. 
+It keeps your data secure and accelerates cryptographic operations on embedded plattforms.
+
+For more information, visit the [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/) or skip to the [Product Information](#product-information) section.
+
+## Getting started
+
+The following link will help getting started with the OPTIGA&trade; Trust M on one of our Evaluation Plattforms: 
+
+[Getting Started Guide](https://github.com/Infineon/getstarted-optiga-trust-m)
+
+A list of supported [Evaluation Kits](#evaluation-and-development-kits) can be found below.
+
+## OPTIGA™ Trust M Host Library for C
+
+To interface with any chip of the OPTIGA™ Trust M family, you will need to port and use the OPTIGA™ Trust M Host Library for C on your (embedded) plattform.
+
+<img src="docs/images/optiga_trust_m_system_block_diagram.png" width="900" >
+
+The OPTIGA™ Trust M Host Library for C is available here: 
+
+[OPTIGA™ Trust M Host Library for C](https://github.com/Infineon/optiga-trust-m)
+
+Multiple [example applications](#host-software) exist, demonstrating the integration and usage of the OPTIGA™ Trust M Host Library for C.
+
+# Product Information
+
+## Product image
+
+<img src="docs/images/optiga_trust_m_uson10.png" width="300" >
+
+## Key Features and Benefits
 
 * High-end security controller
 * Common Criteria Certified EAL6+ (high) hardware
@@ -58,7 +84,7 @@ It will link to various other repositories, which will handle the Get-Started Gu
 * Hibernate for zero power consumption
 * Lifetime for Industrial Automation and Infrastructure is 20 years and 15 years for other Application Profiles  
 
-### Features table
+## Features table
 
 <table class="tg">
   <tr>
@@ -84,8 +110,14 @@ It will link to various other repositories, which will handle the Get-Started Gu
     <td class="tg-0pky">✓</td>
     <td class="tg-0pky">✓</td>
   </tr>
+    <tr>
+    <td class="tg-c3ow">TLS Support</td>
+    <td class="tg-0pky">v1.2 / v1.3 </td>
+    <td class="tg-0pky">✓</td>
+    <td class="tg-0pky">✓</td>
+  </tr>
   <tr>
-    <td class="tg-c3ow" rowspan="3">Key Derivation</td>
+    <td class="tg-c3ow" rowspan="3">Key Derivation based on </td>
     <td class="tg-0pky">TLS v1.2 PRF SHA 256 </td>
     <td class="tg-0pky">✓</td>
     <td class="tg-0pky">✓</td>
@@ -126,54 +158,67 @@ It will link to various other repositories, which will handle the Get-Started Gu
   </tr>
   <tr>
     <td class="tg-c3ow" rowspan="2">Protected data (object) update (Integrity)</td>
-    <td class="tg-0pky">ECC NIST P256/384</br>RSA® 1024/2048 </br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing </td>
+    <td class="tg-0pky">ECC NIST P256/384<br>RSA® 1024/2048<br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing </td>
     <td class="tg-0pky">✓</td>
     <td class="tg-0pky">✓</td>
   </tr>
   <tr>
-    <td class="tg-c3ow">ECC NIST P521,</br>ECC Brainpool P256/384/512 r1</br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing</td>
+    <td class="tg-c3ow">ECC NIST P521,<br>ECC Brainpool P256/384/512 r1<br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing</td>
     <td class="tg-0pky"> </td>
     <td class="tg-0pky">✓</td>
   </tr>
   <tr>
     <td class="tg-c3ow">Protected Data/key/metadata update (Integrity and/or confidentiality)</td>
-    <td class="tg-0pky">ECC NIST P256/384/521</br>ECC Brainpool P256/384/512 r1</br>RSA® 1024/2048</br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing</td>
+    <td class="tg-0pky">ECC NIST P256/384/521<br>ECC Brainpool P256/384/512 r1<br>RSA® 1024/2048<br>Signature scheme as ECDSA FIPS 186-3/RSA SSA PKCS#1 v1.5 without hashing</td>
     <td class="tg-0pky"> </td>
     <td class="tg-0pky">✓</td>
   </tr>
 </table>
 
-### Provisioning configurations
+## Provisioning configurations
 
 There are three main provisioning options/configurations available:
 
-**Note: All three configuration options have no effect on the corresponding features. For example, OPTIGA™ Trust M Express has the same features as OPTIGA™ Trust M V3, also the same API and hostcode can be used to work with all three solutions.**
+> ℹ **Please Note**
+> 
+> OPTIGA™ Trust M V1 and OPTIGA™ Trust M V3 differ in the supported features (see Table above). OPTIGA™ Trust M Fit configurations can be built on either V1 or V3.
+> 
+> The provisioning configurations OPTIGA™ Trust M Express and OPTIGA™ Trust M MTR are based on the features of the OPTIGA™ Trust M V3.
+> 
+> All configuration options (V1/V3/Fit/Express/MTR) have the same package and electrical characteristics. The API & hostcode can be used to work with all solutions.
 
-#### **OPTIGA™ Trust M V1/V3**
-A provisioning configuration which comes as a standard for all shipped devices. Unless mentioned differently all OPTIGA™Trust M chips on the market have this configuration.
+### OPTIGA™ Trust M V1/V3
+A provisioning configuration which comes as a standard for all shipped devices. Unless mentioned differently all OPTIGA™ Trust M chips on the market have this configuration.
 
+  * [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/)
+  * [Evaluation Shield](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/)
   * [Sample OPTIGA™ Trust M V1 Open Objects Dump](data/object_dumps/trust_m1_json.txt)
   * [Sample OPTIGA™ Trust M V3 Open Objects Dump](data/object_dumps/trust_m3_json.txt)
-  * [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/)
 
-#### **OPTIGA™ Trust M Fit**
+### OPTIGA™ Trust M Fit
 A custom provisioning option done on demand upon reaching a MoQ. Fully customisable solution including Security Monitor Configuration.
 
-  * Please get in touch with your local Infineon Sales Representative to get more information
+  * Use the [OPTIGA™ Trust Configurator](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/?tab=~%27embedded_software#!designsupport) to customize your OPTIGA™ Trust M solution.
+  * Please get in touch with your local Infineon Sales Representative to get more information and submitting your configuration.
 
-#### **OPTIGA™ Trust M Express**
-A provisioning configuration which can be ordered standalone. This variant comes with three certificates/private keys pre-provisioned by Infineon. Certificates and communication secrets data can be downloaded through the CIRRENT™ Cloud ID.
+### OPTIGA™ Trust M Express
+A provisioning configuration which can be ordered standalone. This variant comes with three certificates/private keys pre-provisioned by Infineon. Certificates and communication secrets data can be downloaded through CIRRENT™ Cloud ID.
 
-  * [Sample OPTIGA™Trust M Express Open Objects Dump](data/object_dumps/trust_m_express_json.txt)
   * [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-express/)
+  * [Evaluation Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-express-shield/)
+  * [Sample OPTIGA™ Trust M Express Open Objects Dump](data/object_dumps/trust_m_express_json.txt)
+  * [CIRRENT™ Cloud-ID to claim certificates](https://osts.infineon.com/cloud-id)
 
-#### **OPTIGA™ Trust M MTR**
-A provisioning configuration which can be ordered standalone. This variant comes with three certificates/private keys pre-provisioned by Infineon. The first certificate and key are meant to be used for Matter Device Attestation. Certificates and communication secrets data can be downloaded through Kudelski keySTREAM.
+### OPTIGA™ Trust M MTR
+A provisioning configuration which can be ordered standalone. This variant comes with three certificates/private keys pre-provisioned by Infineon. The first certificate and key are meant to be used for Matter Device Attestation. Certificates and communication secrets data can be downloaded through Infineon OSTS. 
 
-  * [Sample OPTIGA™Trust M MTR Open Objects Dump](data/object_dumps/trust_m_mtr_json.txt)
   * [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-mtr)
+  * [Evaluation Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield)
+  * [Sample OPTIGA™ Trust M MTR Open Objects Dump](data/object_dumps/trust_m_mtr_json.txt)
+  * [Infineon OSTS to claim certificates](https://osts.infineon.com/trustm/home)
 
-#### Comparison table
+
+### Comparison table
 
 <table>
 <thead>
@@ -288,61 +333,84 @@ A provisioning configuration which can be ordered standalone. This variant comes
 
 ² *End Device Certificate Common Name has either the same value across all devices (Static), or has a chip-unique value (Unique)*
 
-³ *It is expected from the Customer to perform "late-stage provisioning" on the OPTIGA™ Trust M MTR chips, i.e. to download the Matter Certificates (DAC/PAI) from Kudelski keySTREAM and inject into dedicated slots on the OPTIGA™ Trust M*
-
+³ *It is expected from the Customer to perform "late-stage provisioning" on the OPTIGA™ Trust M MTR chips, i.e. to download the Matter Certificates (DAC/PAI) from Kudelski keySTREAM and inject into dedicated slots on the OPTIGA™ Trust M MTR*
+ 
 In addition to the certificates and private keys each OPTIGA™ Trust M Express and OPTIGA™ Trust M MTR comes with a chip unique Platform Binding Secret¹ and an Authorization Reference¹. The latter are two unique per chip 64 bytes long data objects which serve the following purposes:
 
-- Platform Binding Secret (PBS) used to establish a Shielded Connection between a Host MCU and OPTIGA™ Trust M. Should be transferred from the Cloud Service to the respective MCU to run a protected I2C connection; e.g. readout a protected Certificate located in the 0xE0E1 Object ID (see table above). For more details about  Shielded Connection read [here](https://github.com/Infineon/optiga-trust-m/wiki/Shielded-Connection-101).
+- Platform Binding Secret (PBS) is used to establish a Shielded Connection between a Host MCU and OPTIGA™ Trust M. Should be transferred from the Cloud Service to the respective MCU to run a protected I2C connection; e.g. readout a protected Certificate located in the 0xE0E1 Object ID (see table above). For more details about  Shielded Connection read [here](https://github.com/Infineon/optiga-trust-m/wiki/Shielded-Connection-101).
 - Authorization Reference (Auth. Ref.). Used to update/change Certificate, PBS and the Authorization Reference itself. Similar to the PBS shall be transferred to the Host MCU to be used. Find more details in the [Solution Reference Manual](docs/OPTIGA™%20Trust%20M%20Solution%20Reference%20Manual.md)
 
 
-## Host Software
+# Host Software
 
 The OPTIGA™ Trust M is supported by an extensive offering of host libraries, host applications and integration guides.
 
-### Host Libraries
+<img src="docs/images/optiga_trust_m_hostlibrary_block_diagram.png" width="900" >
 
-| Host library                                                                                   | Platform   | Status   |
-| ---------------------------------------------------------------------------------------------- | ---------- | -------- |
-| [OPTIGA™ Trust M Host Library for C](https://github.com/Infineon/optiga-trust-m)               | C          | Active   |
-| [OPTIGA™ Trust M Host Library for Python](https://github.com/Infineon/python-optiga-trust)     | Python/pip | Active   |
-| [OPTIGA™ Trust M Host Library for Arduino](https://github.com/Infineon/arduino-optiga-trust-m) | Arduino    | Archived |
+The [OPTIGA™ Trust M Host Library for C](https://github.com/Infineon/optiga-trust-m) is the core of any application. The source code is in itself platform agnostic, but the "Platform Abstraction Layer" (PAL) needs to be ported to the specific MCU/MPU, as the hostlibrary needs to know, how to use the platform specific APIs for  I2C, Timers etc. 
 
-### Host Applications
+In this section, you will find examples how to use the [OPTIGA™ Trust M Host Library for C](https://github.com/Infineon/optiga-trust-m) on various platforms and operating systems.
 
-| Host application                                                                                                                                                       | Platform      | Status |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------ |
-| [OPTIGA™ Trust M Cryptography](https://github.com/Infineon/mtb-example-optiga-crypto)                                                                                  | ModusToolbox™ | Active |
-| [OPTIGA™ Trust M MQTT Client](https://github.com/Infineon/mtb-example-optiga-mqtt-client)                                                                              | ModusToolbox™ | Active |
-| [OPTIGA™ Trust M Power management](https://github.com/Infineon/mtb-example-optiga-power-management)                                                                    | ModusToolbox™ | Active |
-| [OPTIGA™ Trust M Data management](https://github.com/Infineon/mtb-example-optiga-data-management)                                                                      | ModusToolbox™ | Active |
-| [OPTIGA™ Trust M TLS with mbedTLS](https://github.com/Infineon/mbedtls-optiga-trust-m)                                                                                 | Make          | Active |
-| [OPTIGA™ Trust M AWS FreeRTOS](https://github.com/Infineon/amazon-freertos-optiga-trust)                                                                               | CMake         | Active |
-| [OPTIGA™ Trust M Microsoft Azure IoT](https://github.com/Infineon/azure-esp32-optiga-trust/)                                                                           | Make          | Active |
-| [OPTIGA™ Trust M PKCS#11 interface](https://github.com/Infineon/pkcs11-optiga-trust-m)                                                                                 | CMake         | Active |
-| [OPTIGA™ Trust M Matter integration](https://github.com/project-chip/connectedhomeip/tree/master/examples/lock-app/infineon/psoc6#building-with-optiga-trust-m-as-hsm) | Ninja         | Active |
-| [OPTIGA™ Trust M Zephyr Application](https://github.com/Infineon/optiga-trust-m-zephyr)                                                                                | CMake         | Active |
+Currently tested are: *(this will link to the respective PAL implementations. For example applications, see below.)*
 
-### Tools
+- **Bare Metal** (Native) applications on Infineon's [XMC 4800](https://github.com/Infineon/optiga-trust-m/tree/main/extras/pal/xmc4800) and [PSoC 62](https://github.com/Infineon/mtb-example-optiga-crypto/tree/master/source/COMPONENT_OPTIGA_CYHAL) microcontrollers 
+- **FreeRTOS** applications with multi-threading support ([PSoC 62](https://github.com/Infineon/mtb-example-optiga-mqtt-client/tree/master/source/COMPONENT_OPTIGA_PAL_FREERTOS), [ESP32](https://github.com/Infineon/optiga-trust-m/tree/main/extras/pal/esp32_freertos), [XMC4800](https://github.com/Infineon/optiga-trust-m/tree/main/extras/pal/xmc4800_freertos))
+- **Zephyr** on [any supported platform](https://github.com/Infineon/optiga-trust-m/tree/main/extras/pal/zephyr)
+- **Linux** applications on [Raspberry Pi](https://github.com/Infineon/optiga-trust-m/tree/main/extras/pal/linux)
 
-| Tool                                                                                             | Platform | Status   |
-| ------------------------------------------------------------------------------------------------ | -------- | -------- |
-| [OPTIGA™ Trust M Linux Command Line Interface](https://github.com/Infineon/linux-optiga-trust-m) | Make     | Active   |
-| [OPTIGA™ Trust M Explorer](https://github.com/Infineon/optiga-trust-m-explorer)                  | Python   | Active   |
-| [OPTIGA™ Trust M Sample Personalizer](https://github.com/Infineon/personalize-optiga-trust)      | Python   | Active   |
-| [OPTIGA™ Trust M I2C Utilities](https://github.com/Infineon/i2c-utils-optiga-trust)              | Make     | Archived |
+## Host Libraries
+
+| Host library                                                                                   | Platform | Status   |
+| ---------------------------------------------------------------------------------------------- | -------- | -------- |
+| [OPTIGA™ Trust M Host Library for C](https://github.com/Infineon/optiga-trust-m)               | C        | Active   |
+| [OPTIGA™ Trust M Host Library for Python](https://github.com/Infineon/python-optiga-trust)     | Python   | Active   |
+| [OPTIGA™ Trust M Host Library for Arduino](https://github.com/Infineon/arduino-optiga-trust-m) | Arduino  | Archived |
+
+## Host Applications
+
+| Host application                                                                                                                                                       | Operating System | Status |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------ |
+| [OPTIGA™ Trust M Cryptography](https://github.com/Infineon/mtb-example-optiga-crypto)                                                                                  | Native           | Active |
+| [OPTIGA™ Trust M Power management](https://github.com/Infineon/mtb-example-optiga-power-management)                                                                    | Native           | Active |
+| [OPTIGA™ Trust M Data management](https://github.com/Infineon/mtb-example-optiga-data-management)                                                                      | Native           | Active |
+| [OPTIGA™ Trust M TLS with mbedTLS](https://github.com/Infineon/mbedtls-optiga-trust-m)                                                                                 | Native           | Active |
+| [OPTIGA™ Trust M MQTT Client](https://github.com/Infineon/mtb-example-optiga-mqtt-client)                                                                              | FreeRTOS         | Active |
+| [OPTIGA™ Trust M Matter integration](https://github.com/project-chip/connectedhomeip/tree/master/examples/lock-app/infineon/psoc6#building-with-optiga-trust-m-as-hsm) | FreeRTOS         | Active |
+| [OPTIGA™ Trust M AWS FreeRTOS](https://github.com/Infineon/amazon-freertos-optiga-trust)                                                                               | FreeRTOS         | Active |
+| [OPTIGA™ Trust M Microsoft Azure IoT](https://github.com/Infineon/azure-esp32-optiga-trust/)                                                                           | FreeRTOS         | Active |
+| [OPTIGA™ Trust M PKCS#11 interface](https://github.com/Infineon/pkcs11-optiga-trust-m)                                                                                 | Linux            | Active |
+| [OPTIGA™ Trust M Linux Command Line Interface incl. OpenSSL Provider](https://github.com/Infineon/linux-optiga-trust-m)                                                | Linux            | Active |
+| [OPTIGA™ Trust M Zephyr Application](https://github.com/Infineon/optiga-trust-m-zephyr)                                                                                | Zephyr           | Active |
+
+## Tools
+
+| Tool                                                                                        | Platform | Status   |
+| ------------------------------------------------------------------------------------------- | -------- | -------- |
+| [OPTIGA™ Trust M Explorer](https://github.com/Infineon/optiga-trust-m-explorer)             | Python   | Active   |
+| [OPTIGA™ Trust M Sample Personalizer](https://github.com/Infineon/personalize-optiga-trust) | Python   | Active   |
+| [OPTIGA™ Trust M I2C Utilities](https://github.com/Infineon/i2c-utils-optiga-trust)         | Linux    | Archived |
 
 
-## Evaluation and development kits
+# Evaluation and development kits
 
-|                                               [OPTIGA™ Trust M Evaluation Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit)                                               |                                        [OPTIGA™ Trust IoT Security Development Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit)                                        |                          [OPTIGA™ Trust M Shields in Combination with PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus)                           |
+|                          [OPTIGA™ Trust M Shields in Combination with PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus)                           |                                               [OPTIGA™ Trust M Evaluation Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit)                                               |                                        [OPTIGA™ Trust IoT Security Development Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit)                                        |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M_Eval_Kit%2002.jpg" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/optiga_trust_iot_secdevkit.png" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/PSoC62S2_OPTIGA_Trust_M_MikroBUS.png" width="480"></a> |
+| <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/PSoC62S2_OPTIGA_Trust_M_MikroBUS.png" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M_Eval_Kit%2002.jpg" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/optiga_trust_iot_secdevkit.png" width="480"></a> 
+| Active and Preferred | Not Recommended for New Designs | Not Recommended for New Designs |
 
-Get started with the [OPTIGA™ Trust M evaluation kit (XMC)](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-eval-kit/), with the [OPTIGA™ Trust IoT Security Development kit](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-iot-kit/) or with any one of the available OPTIGA™ Trust M Shields ([Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/), [Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/)) in combination with the [PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-43012/) using [this](https://github.com/Infineon/getstarted-optiga-trust-m) Application Note.
+
+The preferred evaluation kit for the OPTIGA™ Trust M with a dedicated [Getting Started Guide](https://github.com/Infineon/getstarted-optiga-trust-m) consists of the following components: 
+
+- [PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-43012/) (CY8CKIT-062S2-43012)
+- [OPTIGA™ Trust Adapter](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-adapter) 
+- Any one of the OPTIGA™ Trust M Shields ([Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/), [Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/))
+
+You will need to order the 3 pieces separately, depending on your chosen configuration.
+
+Alternatively, get started with the [OPTIGA™ Trust M evaluation kit (XMC)](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-eval-kit/) or with the [OPTIGA™ Trust IoT Security Development kit](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-iot-kit/).
 
 <details>
-  <summary> Notes to the Shield2Go Security OPTIGA™Trust M</summary>
+  <summary> Description and notes to the Shield2Go Security OPTIGA™ Trust M</summary>
 
 * Supply voltage VCC is max. 5.5 V, please refer to the OPTIGA™ Trust M datasheet for more details about maximum ratings
 * Ensure that no voltage applied to any of the pins exceeds the absolute maximum rating of VCC + 0.3 V
@@ -361,28 +429,30 @@ Get started with the [OPTIGA™ Trust M evaluation kit (XMC)](https://www.infine
 </details>
 
 <details>
-  <summary> Notes to the OPTIGA™Trust M [Variant] Shields</summary>
+  <summary> Description and notes to the OPTIGA™ Trust M [Variant] Shields</summary>
 
 * The product variant can be identified through the configuration LED.
 * The design of the Shield is for 3V3 VCC
 * Absolute max. rating of VCC is 5.5 V, please refer to the OPTIGA™ Trust M datasheet for more details about maximum ratings
 * Ensure that no voltage applied to any of the pins exceeds the absolute maximum rating of VCC + 0.3 V
 * Pin out of the shield is directly connected to the pins of the OPTIGA™ Trust M
+* Hybernation Control is only available for Shields with HW-Revision ≥ 3.1
+  * The CTL Pin enables the hibernation control of the OPTIGA™ Trust M. By pulling the pin to "low", the chip gets disabled. 
 
   <details>
   <summary> OPTIGA™ Trust M [Variant] Shield Pinout</summary>
-  <img src="docs/images/optiga_trust_m_shield_pinout.png" alt="drawing"/>
+  <img src="docs/images/optiga_trust_m_shield_mbus_pinout.png" alt="drawing"/>
   </details>
 
   <details>
   <summary> OPTIGA™ Trust M [Variant] Shield Schematic</summary>
-  <img src="docs/images/optiga_trust_m_shield_mbus_schematics.png" alt="drawing"/>
+  <img src="docs/images/optiga_trust_m_shield_mbus_schematic.png" alt="drawing"/>
   </details>
 </details>
 
-## Documentation
+# Documentation
 
-### Product documentation
+## Product documentation
 
 For high level description and some important excerpts from the documentation please refer to [Wiki page](https://github.com/Infineon/optiga-trust-m/wiki)
 
@@ -394,7 +464,7 @@ Other downloadable PDF documents can be found below:
 4. [OPTIGA™ Trust Config Guide v2.20](docs/pdf/OPTIGA_Trust_M_ConfigGuide_v2.2.pdf) (PDF)
 5. [Infineon I2C protocol specification v2.03](docs/pdf/Infineon_I2C_Protocol_v2.03.pdf) (PDF)
 
-### Useful articles
+## Useful articles
 
   * [Wiki](https://github.com/Infineon/optiga-trust-m/wiki)
   * [Porting guide](https://github.com/Infineon/optiga-trust-m/tree/develop/pal)
@@ -411,7 +481,7 @@ Other downloadable PDF documents can be found below:
   * [The OPTIGA™ Trust M Protocol Stack (KBA)](https://community.infineon.com/t5/Blogs/OPTIGA-Trust-M-protocol-stack/ba-p/361674?profile.language=en)
   * [OPTIGA™ Trust M Metadata (KBA)](https://community.infineon.com/t5/Blogs/OPTIGA-Trust-M-Metadata/ba-p/363355)
 
-## Board assembly recommendations
+# Board assembly recommendations
 
 If you are planning to integrate OPTIGA™ Trust M in your PCB design have a look at the recommendations found [here (external, opens in the same tab)](https://www.infineon.com/dgdl/Infineon-Additional_product_information_SON_packages-AN-v00_01-EN.pdf?fileId=db3a30433e82b1cf013e82faab2000e5).
 
