@@ -33,8 +33,8 @@ It will link to various other repositories, which will handle the Get-Started Gu
 
 <img src="docs/images/optiga_trust_m_uson10.png" width="300" >
 
-The OPTIGA™ Trust M is a high-end security controller with Common Criteria EAL 6+ (high) certified hardware. 
-It keeps your data secure and accelerates cryptographic operations on embedded plattforms.
+The OPTIGA™ Trust M is a high-end security controller based on Common Criteria EAL 6+ (high) certified hardware. 
+It keeps your data secured and accelerates cryptographic operations on embedded plattforms.
 
 For more information, visit the [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/) or skip to the [Product Information](#product-information) section.
 
@@ -67,7 +67,8 @@ Multiple [example applications](#host-software) exist, demonstrating the integra
 ## Key Features and Benefits
 
 * High-end security controller
-* Common Criteria Certified EAL6+ (high) hardware
+* Based on Common Criteria EAL6+ (high) certified hardware
+* PSA Level 3 certified (SLS 32AIA010MK)
 * Turnkey solution
 * Up to 10kB user memory
 * PG-USON-10 package (3 x 3 mm)
@@ -80,7 +81,7 @@ Multiple [example applications](#host-software) exist, demonstrating the integra
   * TLS v1.2 PRF and HKDF up to SHA512
 * Crypto ToolBox commands for SHA-256, ECC and RSA® Feature, AES, HMAC and Key derivation
 * Configurable device security monitor, 4 Monotonic up counters
-* Protected(integrity and confidentiality) update of data, key and metadata objects
+* Protected (integrity and confidentiality) update of data, key and metadata objects
 * Hibernate for zero power consumption
 * Lifetime for Industrial Automation and Infrastructure is 20 years and 15 years for other Application Profiles  
 
@@ -191,7 +192,8 @@ There are three main provisioning options/configurations available:
 A provisioning configuration which comes as a standard for all shipped devices. Unless mentioned differently all OPTIGA™ Trust M chips on the market have this configuration.
 
   * [Product Webpage](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/)
-  * [Evaluation Shield](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/)
+  * [Evaluation Shield (Shield2Go)](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/)
+  * [Evaluation Shield (mikroBUS compatible)](https://www.infineon.com/optiga-trust-m-shield)
   * [Sample OPTIGA™ Trust M V1 Open Objects Dump](data/object_dumps/trust_m1_json.txt)
   * [Sample OPTIGA™ Trust M V3 Open Objects Dump](data/object_dumps/trust_m3_json.txt)
 
@@ -199,7 +201,7 @@ A provisioning configuration which comes as a standard for all shipped devices. 
 A custom provisioning option done on demand upon reaching a MoQ. Fully customisable solution including Security Monitor Configuration.
 
   * Use the [OPTIGA™ Trust Configurator](https://www.infineon.com/cms/en/product/security-smart-card-solutions/optiga-embedded-security-solutions/optiga-trust/optiga-trust-m-sls32aia/?tab=~%27embedded_software#!designsupport) to customize your OPTIGA™ Trust M solution.
-  * Please get in touch with your local Infineon Sales Representative to get more information and submitting your configuration.
+  * Please get in touch with your local Infineon Sales Representative to get more information and to submit your configuration.
 
 ### OPTIGA™ Trust M Express
 A provisioning configuration which can be ordered standalone. This variant comes with three certificates/private keys pre-provisioned by Infineon. Certificates and communication secrets data can be downloaded through CIRRENT™ Cloud ID.
@@ -337,7 +339,7 @@ A provisioning configuration which can be ordered standalone. This variant comes
  
 In addition to the certificates and private keys each OPTIGA™ Trust M Express and OPTIGA™ Trust M MTR comes with a chip unique Platform Binding Secret¹ and an Authorization Reference¹. The latter are two unique per chip 64 bytes long data objects which serve the following purposes:
 
-- Platform Binding Secret (PBS) is used to establish a Shielded Connection between a Host MCU and OPTIGA™ Trust M. Should be transferred from the Cloud Service to the respective MCU to run a protected I2C connection; e.g. readout a protected Certificate located in the 0xE0E1 Object ID (see table above). For more details about  Shielded Connection read [here](https://github.com/Infineon/optiga-trust-m/wiki/Shielded-Connection-101).
+- Platform Binding Secret (PBS) is used to establish a Shielded Connection between a Host MCU and OPTIGA™ Trust M. It should be transferred from the Cloud Service to the respective MCU to run a protected I2C connection; e.g. readout a protected Certificate located in the 0xE0E1 Object ID (see table above). For more details about  Shielded Connection read [here](https://github.com/Infineon/optiga-trust-m/wiki/Shielded-Connection-101).
 - Authorization Reference (Auth. Ref.). Used to update/change Certificate, PBS and the Authorization Reference itself. Similar to the PBS shall be transferred to the Host MCU to be used. Find more details in the [Solution Reference Manual](docs/OPTIGA™%20Trust%20M%20Solution%20Reference%20Manual.md)
 
 
@@ -403,7 +405,7 @@ The preferred evaluation kit for the OPTIGA™ Trust M with a dedicated [Getting
 
 - [PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://www.infineon.com/cms/en/product/evaluation-boards/cy8ckit-062s2-43012/) (CY8CKIT-062S2-43012)
 - [OPTIGA™ Trust Adapter](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-adapter) 
-- Any one of the OPTIGA™ Trust M Shields ([Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/), [Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/))
+- Any one of the OPTIGA™ Trust M Shields ([Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/), [OPTIGA™ Trust M Shield](https://www.infineon.com/optiga-trust-m-shield), [OPTIGA™ Trust M Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [OPTIGA™ Trust M MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/))
 
 You will need to order the 3 pieces separately, depending on your chosen configuration.
 
