@@ -1,22 +1,19 @@
-# OPTIGA™ Trust M Solution Reference Manual v3.60 ([pdf](https://github.com/Infineon/optiga-trust-m/raw/develop/documents/OPTIGA_Trust_M_Solution_Reference_Manual_v3.60.pdf))
+# OPTIGA™ Trust M Solution Reference Manual v3.70 ([pdf](https://github.com/Infineon/optiga-trust-m/raw/develop/documents/OPTIGA_Trust_M_Solution_Reference_Manual_v3.70.pdf))
 
+Document release reference: Z8F80541224-B
 
 **About this document**
 
 Scope and purpose
 
-The scope of this document is the OPTIGA™ Trust M\[1\] solution spanning
+The scope of this document is the OPTIGA™ Trust M solution spanning
 from the device with its external interface to the enabler components
-used for integrating the device with a bigger system. Throughout this
-document the term OPTIGA™ is interchangable used for the particular
-OPTIGA™ Trust family member OPTIGA™ Trust M, which is subject of this
-document.
+used for integrating the device with a bigger system.
 
 Intended audience
 
-This document addresses the audience: development teams as well as
-customers, solution providers or system integrators who are interested
-in solution details.
+This document is primarily intended for development teams, solution providers and system integrators who are
+interested in integrating OPTIGA™ Trust M family of devices in their system.
 
 # Table of Contents
 
@@ -41,7 +38,7 @@ in solution details.
     - [2.3.1 Use Case: Mutual Authentication establish session -toolbox-(TLS-Client)](#use-case-mutual-authentication-establish-session--toolbox--tls-client)
     - [2.3.2 Use Case: Abbreviated Handshake -toolbox- (TLS-Client)](#use-case-abbreviated-handshake--toolbox--tls-client)
     - [2.3.3 Use Case: Host Firmware Update](#use-case-host-firmware-update)
-    - [2.3.4 Use Case: Pair OPTIGA™ with Host (Pre-Shared Secret based)](#use-case-pair-optiga-with-host-pre-shared-secret-based)
+    - [2.3.4 Use Case: Pair OPTIGA™ Trust M with Host (Pre-Shared Secret based)](#use-case-pair-optiga-with-host-pre-shared-secret-based)
     - [2.3.5 Use Case: Verified Boot -toolbox-](#use-case-verified-boot--toolbox-)
     - [2.3.6 Use Case: Update Platform Binding Secret during runtime(Pre-Shared Secret based)](#use-case-update-platform-binding-secret-during-runtime-pre-shared-secret-based)
     - [2.3.7 Use Case: Local "data-at-rest" protection](#use-case-local-data-at-rest-protection)
@@ -142,7 +139,7 @@ in solution details.
   - [6.6 Shielded Connection V1 Guidance](#shielded-connection-v1-guidance)
     - [6.6.1 Setup](#setup)
     - [6.6.2 Usage](#usage)
-    - [6.6.3 Host authenticates OPTIGA™](#host-authenticates-optiga)
+    - [6.6.3 Host authenticates OPTIGA™ Trust M](#host-authenticates-optiga)
       - [6.6.3.1 Write and read nonce to/from a data object](#write-and-read-nonce-tofrom-a-data-object)
       - [6.6.3.2 Derive keys using nonce during run time](#derive-keys-using-nonce-during-run-time)
       - [6.6.3.3 Derive keys using nonce and a static (additional) pre-shared secret](#derive-keys-using-nonce-and-a-static-additional-pre-shared-secret)
@@ -202,7 +199,7 @@ and references to maintain a common language throughout the document.
 
 Throughout this document the naming of cryptographic material (e.g.
 keys) are constructed by concatenating abbreviations (in "camel
-notation") given in this section (e.g. SmcPriAUT → OPTIGA™ Private Key
+notation") given in this section (e.g. SmcPriAUT → OPTIGA™ Trust M Private Key
 for Authentication).
 
 2.  Naming Conventions
@@ -227,7 +224,7 @@ for Authentication).
 
 The shown references are either direct used throughout this document or
 worth to read for a better understanding of the eco-systems with which
-the OPTIGA™ interacts.
+the OPTIGA™ Trust M interacts.
 
 3.  References
 
@@ -422,12 +419,12 @@ the OPTIGA™ interacts.
 
 ## Overview
 
-The OPTIGA™ provides a cryptographic feature set which in particular
+The OPTIGA™ Trust M family of devices provides a cryptographic feature set which in particular
 supporting IoT use cases and along with that it provides a number of key
 and data objects which hold user/customer related keys and data.
 
 The subsequent document is structured in the chapters [Supported Use
-Cases](#_Supported_Use_Cases), [Enabler APIs](#enabler-apis), [OPTIGA™
+Cases](#_Supported_Use_Cases), [Enabler APIs](#enabler-apis), [OPTIGA™ Trust M
 Trust M External Interface](#_OPTIGA™_Trust_M), [OPTIGA™ Trust M Data
 Structures](#optiga-trust-m-data-structures) and [Appendix](#_Appendix).
 
@@ -441,12 +438,12 @@ Structures](#optiga-trust-m-data-structures) and [Appendix](#_Appendix).
     [OPTIGA™ Trust M External Interface](#_OPTIGA™_Trust_M).
 
   - [OPTIGA™ Trust M External Interface](#_OPTIGA™_Trust_M) provides the
-    necessary details of the external interface to utilize the OPTIGA™
-    functionality.
+    necessary details of the external interface to utilize the functionality offered by OPTIGA™ Trust M
+    devices.
 
   - [OPTIGA™ Trust M Data Structures](#optiga-trust-m-data-structures)
     provides details of the key and data objects provided by the
-    OPTIGA™.
+    OPTIGA™ Trust M.
 
   - [Appendix](#_Appendix) provides some useful information with regards
     to [Command Coding Examples](#command-coding-examples),
@@ -460,11 +457,11 @@ Structures](#optiga-trust-m-data-structures) and [Appendix](#_Appendix).
 
 In the [Supported use cases](#_Supported_Use_Cases) chapter a collection
 of use cases are provided which are expressed as UML sequence diagrams
-to show how to utilize the OPTIGA™ enabler components ([Enabler
+to show how to utilize the OPTIGA™ Trust M enabler components ([Enabler
 APIs](#enabler-apis)) to achieve the target functionality of the
 solution. This chapter is intended to maintain a well understanding of
-the OPTIGA™ eco system components particular for system integrators who
-like to integrate the OPTIGA™ with their solution.
+the OPTIGA™ Trust M eco system components particular for system integrators who
+like to integrate the OPTIGA™ Trust M with their solution.
 
 ## Architecture Decomposition
 
@@ -488,33 +485,33 @@ and briefly described in the table below.
 </tr>
 <tr class="even">
 <td>optiga_cmd</td>
-<td><p>This module <em>optiga_cmd</em> exposes the main interface to interact with OPTIGA™. It is aware of the format of the command set provided by the OPTIGA™. The <em>optiga_cmd</em> converts API calls in the regarded (command / response) APDUs known by the OPTIGA™. The <em>optiga_cmd</em> APIs expose the same semantics provided by OPTIGA™.</p>
-<p>The <em>optiga_cmd</em> provides multiple instances of the API. Beyond exposing the APIs it arbitrates as well concurrent invocations of the APIs. Its usage characteristic is asynchronous, where the caller of an instance has to take care of the correct sequence of calls for a dedicated use case. In case, an instance of the API requires multiple invocations to reliably implement a use case (strict sequence), the APIs allows locking out other instances from interacting with the OPTIGA™. As soon as those strict sequences are executed, the lock acquired must be released. The <em>optiga_cmd</em> interacts with optiga_comms_xxx (xxx stands for variants e.g. ifx_i2c, tc, ...) for reliable communication with OPTIGA™.</p></td>
+<td><p>This module <em>optiga_cmd</em> exposes the main interface to interact with OPTIGA™ Trust M. It is aware of the format of the command set provided by the OPTIGA™ Trust M. The <em>optiga_cmd</em> converts API calls in the regarded (command / response) APDUs known by the OPTIGA™ Trust M. The <em>optiga_cmd</em> APIs expose the same semantics provided by OPTIGA™ Trust M.</p>
+<p>The <em>optiga_cmd</em> provides multiple instances of the API. Beyond exposing the APIs it arbitrates as well concurrent invocations of the APIs. Its usage characteristic is asynchronous, where the caller of an instance has to take care of the correct sequence of calls for a dedicated use case. In case, an instance of the API requires multiple invocations to reliably implement a use case (strict sequence), the APIs allows locking out other instances from interacting with the OPTIGA™ Trust M. As soon as those strict sequences are executed, the lock acquired must be released. The <em>optiga_cmd</em> interacts with optiga_comms_xxx (xxx stands for variants e.g. ifx_i2c, tc, ...) for reliable communication with OPTIGA™ Trust M.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_comms_ifx_i2c</td>
-<td>optiga_comms_ifx_i2c implements the protocol used to turn-in communication between Local Host and OPTIGA™. The invoking component, in the given architecture is the optiga_cmd block through the <a href="#pal">pal</a>. The <em>optiga_cmd</em> provides command APDUs to optiga_comms_ifx_i2c and receives response APDUs from the optiga_comms_ifx_i2c. The size of APDUs may vary between few bytes to kilobytes. The protocol implementation is done in multiple layers and seamlessly handles data transfer from Local Host to OPTIGA™ and OPTIGA™ to Local Host. More details of the implemented protocol can be found in <a href="#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4">[IFX_I2C]</a>. <a href="#link822d389c_4656_40b4_88e7_2bbe7860cbec">optiga_comms_ifx_i2c</a> usage characteristic is asynchronous, were the caller has to take care of the correct sequence of calls for a dedicated use case.</td>
+<td>optiga_comms_ifx_i2c implements the protocol used to turn-in communication between Local Host and OPTIGA™ Trust M. The invoking component, in the given architecture is the optiga_cmd block through the <a href="#pal">pal</a>. The <em>optiga_cmd</em> provides command APDUs to optiga_comms_ifx_i2c and receives response APDUs from the optiga_comms_ifx_i2c. The size of APDUs may vary between few bytes to kilobytes. The protocol implementation is done in multiple layers and seamlessly handles data transfer from Local Host to OPTIGA™ Trust M and OPTIGA™ Trust M to Local Host. More details of the implemented protocol can be found in <a href="#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4">[IFX_I2C]</a>. <a href="#link822d389c_4656_40b4_88e7_2bbe7860cbec">optiga_comms_ifx_i2c</a> usage characteristic is asynchronous, were the caller has to take care of the correct sequence of calls for a dedicated use case.</td>
 </tr>
 <tr class="even">
 <td>optiga_crypt</td>
 <td><p>The <a href="#optiga_crypt">optiga_crypt</a> module provides cryptographic tool box functionality with the following characteristics:</p>
 <ul>
 <li><p>Multiple instances could be created using <a href="#link28c03883_dabd_429d_bd0e_318443c64ece">optiga_crypt_create</a> to allow concurrent access to the toolbox.</p></li>
-<li><p>Uses <em>optiga_cmd</em> module to interact with the OPTIGA™<em>.</em></p></li>
+<li><p>Uses <em>optiga_cmd</em> module to interact with the OPTIGA™ Trust M<em>.</em></p></li>
 <li><p>The <em>optiga_cmd</em> module might get locked for some consecutive invocations, which need to be executed atomic (strict).</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>optiga_util</td>
-<td><p>The <a href="#optiga_util">optiga_util</a> module provides useful utilities to manage the OPTIGA™ (open/close) and data/key objects with the following characteristics:</p>
+<td><p>The <a href="#optiga_util">optiga_util</a> module provides useful utilities to manage the OPTIGA™ Trust M (open/close) and data/key objects with the following characteristics:</p>
 <ul>
 <li><p>Multiple instances could be created to allow concurrent access to other services.</p></li>
-<li><p>Uses <em>optiga_cmd</em> module to interact with the OPTIGA™<em>.</em></p></li>
+<li><p>Uses <em>optiga_cmd</em> module to interact with the OPTIGA™ Trust M<em>.</em></p></li>
 </ul></td>
 </tr>
 <tr class="even">
 <td>Pal</td>
-<td>The <a href="#pal">pal</a> is a <strong>P</strong>latform <strong>A</strong>bstraction <strong>L</strong>ayer, abstracting HW and Operating System functionalities for the Infineon XMC family of µController or upon porting to any other µController. It abstracts away the low level device driver interface (platform_timer, platform_i2c, etc.) to allow the modules calling it being platform agnostic. The <a href="#pal">pal</a> is composed of hardware, software and an operating system abstraction part.</td>
+<td>The <a href="#pal">pal</a> is a <strong>P</strong>latform <strong>A</strong>bstraction <strong>L</strong>ayer, abstracting HW and Operating System functionalities for the Infineon XMC/PSOC™ family of µController or upon porting to any other µController. It abstracts away the low level device driver interface (platform_timer, platform_i2c, etc.) to allow the modules calling it being platform agnostic. The <a href="#pal">pal</a> is composed of hardware, software and an operating system abstraction part.</td>
 </tr>
 <tr class="odd">
 <td>platform_crypto</td>
@@ -526,7 +523,7 @@ and briefly described in the table below.
 </tr>
 <tr class="even">
 <td>platform_i2c</td>
-<td>The platform_i2c is the platform specific I2C device driver, which turns in communication with the OPTIGA™.</td>
+<td>The platform_i2c is the platform specific I2C device driver, which turns in communication with the OPTIGA™ Trust M.</td>
 </tr>
 <tr class="odd">
 <td>platform_timer</td>
@@ -548,9 +545,9 @@ The class diagram OPTIGA&trade;Trust Communication Protection - toolbox - View
 shows the Communication Protection Solution Architecture in case the
 local host is invoking a third\_party\_crypto library (e.g. WolfSSL,
 OpenSSL, mbedTLS, ...) containing its main functional blocks. The
-OPTIGA™ is integrated via its toolbox functionality. The entities
+OPTIGA™ Trust M is integrated via its toolbox functionality. The entities
 communicating across a protected channel are the Server and the Client
-(Host) and optionally the Client and the OPTIGA™ (Shielded Connection).
+(Host) and optionally the Client and the OPTIGA™ Trust M (Shielded Connection).
 This view is applied for toolbox based solution kind of use cases, where
 the involved blocks are represented as dedicated lifelines.
 
@@ -632,7 +629,7 @@ automatically.
 ### Use Case: Read General Purpose Data - data object
 
 The local\_host\_application intends to read the content of a data
-object maintained by the OPTIGA™.
+object maintained by the OPTIGA™ Trust M.
 
 This sequence diagram is provided to show the functions involved in
 reading a data object. The function is performed atomic (no other
@@ -640,7 +637,7 @@ invocation of the *optiga\_cmd* module will interrupt the execution).
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched.
+  - The OPTIGA™ Trust M application is already launched.
 
   - The necessary access conditions for reading the target data object
     are satisfied.
@@ -654,7 +651,7 @@ Figure 2 - Use Case: Read General Purpose Data - data object
 ### Use Case: Read General Purpose Data - metadata
 
 The local\_host\_application intends to read the metadata of a data/key
-object maintained by the OPTIGA™.
+object maintained by the OPTIGA™ Trust M.
 
 This sequence diagram is provided to show the functions involved in
 reading the metadata of a data/key object. The function is performed
@@ -663,7 +660,7 @@ the execution).
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched
+  - The OPTIGA™ Trust M application is already launched
 
 |                                      |
 | ------------------------------------ |
@@ -674,7 +671,7 @@ Figure 3 - Use Case: Read General Purpose Data - metadata
 ### Use Case: Write General Purpose Data - data object
 
 The local\_host\_application intends to update a data object maintained
-by the OPTIGA™.
+by the OPTIGA™ Trust M.
 
 This sequence diagram is provided to show the functions involved in
 performing updating an data object by a single invocation of the
@@ -683,7 +680,7 @@ invocation of the *optiga\_cmd* module will interrupt the execution).
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched
+  - The OPTIGA™ Trust M application is already launched
 
   - The necessary access conditions for writing the target data object
     are satisfied
@@ -701,14 +698,14 @@ Figure 4 - Use Case: Write General Purpose Data - data object
 ### Use Case: Write General Purpose Data - metadata
 
 The local\_host\_application intends to update the metadata associated
-to a data object, which is maintained by OPTIGA™.
+to a data object, which is maintained by OPTIGA™ Trust M.
 
 This sequence diagram is provided to show the functions involved in
 updating metadata associated to a data object.
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched
+  - The OPTIGA™ Trust M application is already launched
 
   - The necessary access conditions for writing the metadata associated
     with a data/key object are satisfied.
@@ -727,16 +724,16 @@ Figure 5 - Use Case: Write General Purpose Data - metadata
 
 The Management Server intends to update a data object (e.g. a Trust
 Anchor) with integrity protected. The Management Server provides an
-update data set, which is forwarded to the OPTIGA™. The OPTIGA™ checks
+update data set, which is forwarded to the OPTIGA™ Trust M. The OPTIGA™ Trust M checks
 and removes the protection and upon success updates the target data
 object.
 
 **Pre-condition(s):**
 
-  - The OPTIGA™ application is already launched
+  - The OPTIGA™ Trust M application is already launched
 
   - The Trust Anchor for management purpose is well formatted and
-    available at the OPTIGA™.
+    available at the OPTIGA™ Trust M.
 
   - The access conditions of the target data object allow protected
     update.
@@ -756,7 +753,7 @@ Figure 6 - Use Case: Integrity Protected Update of a data object
 The Management Server intends to update a key or a data object (e.g.
 Pre-shared Secret) with integrity and confidentiality protected. The
 Management Server provides an update data set, which is forwarded to the
-OPTIGA™. The OPTIGA™ checks and removes the protection and upon success
+OPTIGA™ Trust M. The OPTIGA™ Trust M checks and removes the protection and upon success
 updates the target data/key object.
 
 1.  OPTIGA™ Trust M V1 doesn’t support confidentiality and update of
@@ -764,13 +761,13 @@ updates the target data/key object.
 
 **Pre-condition(s):**
 
-  - The OPTIGA™ application is already launched.
+  - The OPTIGA™ Trust M application is already launched.
 
   - The Trust Anchor for management purpose is well formatted and
-    available at the OPTIGA™.
+    available at the OPTIGA™ Trust M.
 
   - The protected update secret for management purpose (to enable
-    confidentiality) is available at OPTIGA™.
+    confidentiality) is available at OPTIGA™ Trust M.
 
   - The access conditions of the target data/key object allow protected
     updating.
@@ -791,8 +788,8 @@ object
 ### Use Case: Mutual Authentication establish session -toolbox- (TLS-Client)
 
 The Server and the Client (on behalf of the User), which incorporates
-the OPTIGA™, intend to proof the authenticity of each other. Both the
-Server and OPTIGA™ providing challenges (random value) and both entities
+the OPTIGA™ Trust M, intend to proof the authenticity of each other. Both the
+Server and OPTIGA™ Trust M providing challenges (random value) and both entities
 return one or multiple cryptograms (depending on the applied
 authentication protocol) as response by which both parties proof their
 authenticity. The Server and Client executing ECDHE for key agreement
@@ -801,16 +798,16 @@ is authenticated as well.
 
 2.  The hashing of the handshake messages by the Client is not shown.
     This could be performed by SW at the Client or via
-    [CalcHash](#calchash) command by the OPTIGA™. In the latter case,
-    the intermediate results shall be returned by OPTIGA™ and provided
+    [CalcHash](#calchash) command by the OPTIGA™ Trust M. In the latter case,
+    the intermediate results shall be returned by OPTIGA™ Trust M and provided
     for continuing the hashing with further commands.
 
 **Pre-conditions:**
 
-  - The OPTIGA™ application is already launched.
+  - The OPTIGA™ Trust M application is already launched.
 
   - The public key pairs for authentication purpose and public key
-    certificates are properly installed at the OPTIGA™.
+    certificates are properly installed at the OPTIGA™ Trust M.
 
   - The Trust Anchor for verifying the Public Key Certificates of the
     authentication partner (Server) is properly installed.
@@ -818,7 +815,7 @@ is authenticated as well.
 **Post-condition:**
 
   - The Client knows the session keys (write\_key) to run the
-    application protocol without the help of the OPTIGA™.
+    application protocol without the help of the OPTIGA™ Trust M.
 
 |                                       |
 | ------------------------------------- |
@@ -831,36 +828,36 @@ Figure 8 - Use Case: Mutual Authentication establish session -toolbox-
 | ------------------------------------- |
 | ![728,6](https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M/SRM/image12.tmp) |
 
-Figure 9 - Use Case: Mutual Auth establish session -toolbox-
+Figure 9 - Use Case: Mutual Authentication establish session -toolbox-
 (TLS-Client) cont'd
 
 ### Use Case: Abbreviated Handshake -toolbox- (TLS-Client)
 
 The Server and the Client (on behalf of the User), which incorporates
-the OPTIGA™, intend to resume an established session. Both the Server
-and OPTIGA™ providing challenges (random value via "Hello" msg) and both
+the OPTIGA™ Trust M, intend to resume an established session. Both the Server
+and OPTIGA™ Trust M providing challenges (random value via "Hello" msg) and both
 entities providing verification data to prove the possession of the
 cryptographic parameters (master secret) previously negotiated.
 
 *Note: the hashing of the handshake messages by the* Client *is not
 shown. This could be performed by SW at the* Client *or via CalcHash
-command by the* OPTIGA™*. In the latter case, the intermediate results
-shall be returned by* OPTIGA™ *and provided for continuing the hashing
+command by the* OPTIGA™ Trust M*. In the latter case, the intermediate results
+shall be returned by* OPTIGA™ Trust M *and provided for continuing the hashing
 with further commands.*
 
 **Pre-conditions:**
 
-  - The OPTIGA™ session master secret, which was calculated by the
+  - The OPTIGA™ Trust M session master secret, which was calculated by the
     previous handshake - is available at the regarded session context
     and gets used as input by DeriveKey for the new session key(s).
 
   - The Client is able to hash all handshake messages without the help
-    of OPTIGA™.
+    of OPTIGA™ Trust M.
 
 **Post-condition:**
 
   - The Client knows the session keys (write\_key) to run the
-    application protocol without the help of the OPTIGA™.
+    application protocol without the help of the OPTIGA™ Trust M.
 
 |                                       |
 | ------------------------------------- |
@@ -872,7 +869,7 @@ Figure 10 - Use Case: Abbreviated Handshake -toolbox- (TLS-Client)
 
 The Host intends to update its FW in a protected way, which prevents
 from installation and execution of unauthorized code. This sequence
-diagram is provided to show the functions involved in performing.
+diagram is provided to show the functions involved in performing firmware update.
 
 **Pre-condition:**
 
@@ -881,14 +878,14 @@ diagram is provided to show the functions involved in performing.
     operational mode at least.
 
   - The Trust Anchor (signer's certificate) is loaded to a data object
-    at OPTIGA™.
+    at OPTIGA™ Trust M.
 
   - Host receives the firmware update manifest (e.g. image version,
     signer, hash & sign algorithms, firmware image hash, firmware image
     decryption key derivation information, manifest signature, etc. )
     and encrypted firmware image. The details to be signed (TBS) in the
     manifest are signed by signer and Host verifies the signature
-    generated over TBS using the Trust Anchor installed at OPTIGA™.
+    generated over TBS using the Trust Anchor installed at OPTIGA™ Trust M.
 
 **Post-condition:**
 
@@ -902,13 +899,13 @@ diagram is provided to show the functions involved in performing.
 
 Figure 11 - Use Case: Host Firmware Update
 
-### Use Case: Pair OPTIGA™ with Host (Pre-Shared Secret based)
+### Use Case: Pair OPTIGA™ Trust M with Host (Pre-Shared Secret based)
 
-The OPTIGA™ and Host establishing a protected communication channel,
+The OPTIGA™ Trust M and Host establishes a protected communication channel,
 which provides integrity and confidentiality for data exchanged between
 both entities. This sequence diagram is about generation and exchange of
 those assets during production of the customer solution. The solution
-comprises at least of the Host and the OPTIGA™.
+comprises at least of the Host and the OPTIGA™ Trust M.
 
 **Pre-condition(s):**
 
@@ -924,7 +921,7 @@ comprises at least of the Host and the OPTIGA™.
 | ------------------------------------- |
 | ![728,6](https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M/SRM/image15.tmp) |
 
-Figure 12 - Use Case: Pair OPTIGA™ with Host (Pre-Shared Secret based)
+Figure 12 - Use Case: Pair OPTIGA™ Trust M with Host (Pre-Shared Secret based)
 
 ### Use Case: Verified Boot -toolbox-
 
@@ -932,14 +929,14 @@ The Host system intends to verify the integrity of the host software
 image. The verification shall be done based on a public key signature
 scheme. The components involved are the immutable\_boot\_block, the
 primary\_boot\_loader, some further platform specific components
-integrated in the boot process and the OPTIGA™.
+integrated in the boot process and the OPTIGA™ Trust M.
 
 **Pre-conditions:**
 
-  - The OPTIGA™ application is already launched.
+  - The OPTIGA™ Trust M application is already launched.
 
   - The Trust Anchor for verifying the image hash is properly installed
-    at the OPTIGA™.
+    at the OPTIGA™ Trust M.
 
 **Post-condition:**
 
@@ -954,13 +951,13 @@ Figure 13 - Use Case: Verified Boot
 
 ### Use Case: Update Platform Binding Secret during runtime (Pre-Shared Secret based)
 
-This sequence diagram is about generation and exchange of Platform
+This sequence diagram depicts generation and exchange of Platform
 Binding Secret using Shielded Connection during runtime. The solution
-comprises the Host and the OPTIGA™.
+comprises the Host and the OPTIGA™ Trust M.
 
 **Pre-condition(s):**
 
-  - The Pairing of OPTIGA™ and Host (Pre-Shared secret based) is
+  - The Pairing of OPTIGA™ Trust M and Host (Pre-Shared secret based) is
     performed.
 
   - The change access condition of Platform Binding Secret is enabled
@@ -982,7 +979,7 @@ Figure 14 - Use Case: Update Platform Binding Secret during runtime
 
 A Host needs to protect data against access by any third party. This
 sequence diagram is about high volume data encryption at the Host. For
-that purpose, Host and OPTIGA™ establish a unique key for local data
+that purpose, Host and OPTIGA™ Trust M establish a unique key for local data
 encryption/ decryption. Host generates a random secret once and uses it
 for lifetime to derive the actual secret used for encrypt/decrypt of
 local data by the Host.
@@ -991,13 +988,11 @@ local data by the Host.
 
   - Either there is at least one arbitrary data object ([Data Structure
     Arbitrary data object](#linkad7de86b_f284_4143_b60c_f98d9ba42353))
-    of type 3 (in this example OID = 0xF1D1) available at the OPTIGA™ to
-    save the unique secret for local encryption.
+    of type 3 (in this example OID = 0xF1D1) available at the OPTIGA™ Trust M to
+    save the unique secret for local encryption or the unique secret for local encryption
+    is already saved and locked.
 
-  - Or the unique secret for local encryption is already saved and
-    locked.
-
-  - The OPTIGA™ Shielded connection is activated (presentation layer of
+  - The OPTIGA™ Trust M Shielded connection is activated (presentation layer of
     the I2C protocol
     [\[IFX\_I2C\]](#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4) is
     present) and is recommended to be used for all commands and
@@ -1015,24 +1010,21 @@ Figure 15 - Use Case: Local "data-at-rest" protection
 
 ### Use Case: Local "data-at-rest" and "data-in-transit" protection
 
-A Host needs to protect data against access by any third party. This
-sequence diagram is about protecting low volume of data at the Host. For
-that purpose OPTIGA™ stores the data at its embedded data store. The
-data store needs to be configured in a way the protection (OPTIGA™
-Shielded Connection) of data being transferred between data object and
-host is enforced by the respective access conditions defined as part of
-the metadata associated with the target data objects.
+The below sequence diagram shows how to protect low volume data at the host to protect it from being
+accessed by third parties. For that purpose, OPTIGA™ Trust M stores the data at its embedded data store. The
+data store needs to be configured in a way the protection (OPTIGA™ Trust M shielded connection) of data being
+transferred between data object and host is enforced by the respective access conditions defined as part of the
+metadata associated with the target data objects.
 
 **Pre-condition:**
 
   - Each data object to protect data at rest are configured in a way
     writing (AC CHA = Conf(0xE140)) or reading (AC RD = Conf(0xE140)) it
-    must apply protection by OPTIGA™ Shielded Connection.
+    must apply protection by OPTIGA™ Trust M Shielded Connection.
 
 **Post-condition:**
 
-  - The plain payload read or written was traveling on the I2C bus
-    confidentiality protected.
+  - The payload transferred over the I2C is encrypted to protect it from third party
 
 |                                       |
 | ------------------------------------- |
@@ -1043,25 +1035,22 @@ protection
 
 ### Use Case: Host "data-at-rest" and "data-in-transit" protection
 
-A host needs to protect data against access by any third party. This
-sequence diagram is about protecting higher volume of data at the Host
-persistent storage. For that purpose OPTIGA™ encrypts (writing) or
-decrypts (reading) the data to be store at the host. The host has to
-persistently store the encrypted data objects at its NVM.
+The below sequence diagram shows how to protect high volume data at the host persistent storage to protect it
+from being accessed by third parties. For that purpose OPTIGA™ Trust M encrypts (writing) or decrypts (reading)
+the data to be store at the host. The host has to persistently store the encrypted data objects at its NVM.
 
 Note: OPTIGA™ Trust M V1 doesn’t support symmetric algorithms.
 
 **Pre-condition:**
 
   - The symmetric key for local data protection is randomly generated
-    and available at the OPTIGA™.
+    and available at the OPTIGA™ Trust M.
 
-  - The OPTIGA™ Shielded Connection is enabled.
+  - The OPTIGA™ Trust M Shielded Connection is enabled.
 
 **Post-condition:**
 
-  - The plain payload read or written was traveling on the I2C bus
-    confidentiality protected.
+  - The payload transferred over the I2C is encrypted to protect it from third party
 
 |                                       |
 | ------------------------------------- |
@@ -1073,14 +1062,14 @@ protection
 ### Use Case: Generate MAC (HMAC with SHA2)
 
 This use case diagram shows the way of generating the MAC for the given
-input data using the secret installed at OPTIGA™.
+input data using the secret installed at OPTIGA™ Trust M.
 
 Note: OPTIGA™ Trust M V1 doesn’t support HMAC based operations.
 
 **Pre-condition:**
 
   - The input secret required for the hmac operation is available at
-    OPTIGA™.
+    OPTIGA™ Trust M.
 
 **Post-condition:**
 
@@ -1096,14 +1085,14 @@ Figure 18 - Use Case: Generate MAC (HMAC with SHA2)
 ### Use Case: Verify Authorization (HMAC with SHA2)
 
 This use case diagram shows the way of verifying the MAC for the given
-input data using the secret installed at OPTIGA™.
+input data using the secret installed at OPTIGA™ Trust M.
 
 3.  OPTIGA™ Trust M V1 doesn’t support HMAC based operations.
 
 **Pre-condition:**
 
   - The input secret required for the HMAC operation is available at
-    OPTIGA™ and its OID is known by the application.
+    OPTIGA™ Trust M and its OID is known by the application.
 
 **Post-condition:**
 
@@ -1119,11 +1108,11 @@ Figure 19 - Use Case: Verify Authorization (HMAC with SHA2)
 ### Use Case: Generate Hash
 
 This use case diagram shows the way of generating the Hash for the given
-input data using OPTIGA™.
+input data using OPTIGA™ Trust M.
 
 **Pre-condition:**
 
-  - The OPTIGA™ is initialized.
+  - The OPTIGA™ Trust M is initialized.
 
 **Post-condition:**
 
@@ -1139,7 +1128,7 @@ Figure 20 - Use Case: Generate Hash
 # Enabler APIs
 
 This chapter provides the specification of the host side APIs of the
-enabler components, which gets provided by the OPTIGA™ solution. The
+enabler components, which is available with the OPTIGA™ Trust M solution. The
 target platforms for those enabler components are embedded systems,
 Linux and Windows.
 
@@ -1192,7 +1181,7 @@ box functionality with the following characteristics:
     [optiga\_crypt\_create](#link28c03883_dabd_429d_bd0e_318443c64ece)
     to allow concurrent access to the toolbox.
 
-  - Uses *optiga\_cmd* module to interact with the OPTIGA™*.*
+  - Uses *optiga\_cmd* module to interact with the OPTIGA™ Trust M*.*
 
   - The *optiga\_cmd* module might get locked for some consecutive
     invocations, which need to be executed atomic
@@ -1214,7 +1203,7 @@ box functionality with the following characteristics:
 <tr class="odd">
 <td>optiga_crypt_create</td>
 <td><p>This operation creates an instance of <a href="#optiga_crypt">optiga_crypt</a>. The volatile memory gets allocated and initialized. This operation inherently creates an instance of <em>optiga_cmd</em> if available due to solution constraints (the number of <em>optiga_cmd</em> instances might be limited).</p>
-<p>Some of the optiga_crypt operations needs session context in OPTIGA™. In such a case, the instance of <em>optiga_cmd</em> of the respective optiga_crypt instances acquires one of the OPTIGA™ sessions before invoking the actual operation.</p></td>
+<p>Some of the optiga_crypt operations needs session context in OPTIGA™ Trust M. In such a case, the instance of <em>optiga_cmd</em> of the respective optiga_crypt instances acquires one of the OPTIGA™ Trust M sessions before invoking the actual operation.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_destroy</td>
@@ -1222,7 +1211,7 @@ box functionality with the following characteristics:
 </tr>
 <tr class="odd">
 <td>optiga_crypt_set_comms_params</td>
-<td><p>This operation sets the shielded connection(Encrypted communication between Host and OPTIGA™) parameters like version, protection level, etc.</p>
+<td><p>This operation sets the shielded connection(Encrypted communication between Host and OPTIGA™ Trust M) parameters like version, protection level, etc.</p>
 <p>The possible shielded connection parameter types that can be set are version (e.g. pre-shared secret based) and protection level (e.g. command protection, response protection, both or none).</p>
 <p>There are macros defined based on this API to ease the usage of shielded connection to set parameters and levels of protection.</p>
 <ul>
@@ -1242,7 +1231,7 @@ APIs
 
 | API Name              | Description                                         |
 | --------------------- | --------------------------------------------------- |
-| optiga\_crypt\_random | This operation generates random data using OPTIGA™. |
+| optiga\_crypt\_random | This operation generates random data using OPTIGA™ Trust M. |
 
 #### Hash operations 
 
@@ -1258,16 +1247,16 @@ APIs
 <tbody>
 <tr class="odd">
 <td>optiga_crypt_hash</td>
-<td><p>This operation performs the hash operation using OPTIGA™ for the provided data and returns the digest.</p>
-<p>If the data to be hashed (from external interface e.g. host) is not possible to be sent to OPTIGA™ in a single transaction, then <em>optiga_cmd</em> sends the data to OPTIGA™ automatically in fragments.</p></td>
+<td><p>This operation performs the hash operation using OPTIGA™ Trust M for the provided data and returns the digest.</p>
+<p>If the data to be hashed (from external interface e.g. host) is not possible to be sent to OPTIGA™ Trust M in a single transaction, then <em>optiga_cmd</em> sends the data to OPTIGA™ Trust M automatically in fragments.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_hash_start</td>
-<td>This operation initializes OPTIGA™ to hash the data further using optiga_crypt_hash_update.</td>
+<td>This operation initializes OPTIGA™ Trust M to hash the data further using optiga_crypt_hash_update.</td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_hash_update</td>
-<td>This operation performs the hashing for the given data (could be either host or referring to a readable data object from OPTIGA™) and updates the hash context using OPTIGA™.</td>
+<td>This operation performs the hashing for the given data (could be either host or referring to a readable data object from OPTIGA™ Trust M) and updates the hash context using OPTIGA™ Trust M.</td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_hash_finalize</td>
@@ -1290,19 +1279,19 @@ APIs
 <tbody>
 <tr class="odd">
 <td>optiga_crypt_ecc_generate_keypair</td>
-<td><p>This operation generates ECC key pair using OPTIGA™. The generated private key could be either stored in OPTIGA™ (static private key from key store or volatile session based) or exported to host.</p>
-<p>In case of session based, the instance internally acquires one of the OPTIGA™ sessions before invoking the actual operation.</p></td>
+<td><p>This operation generates ECC key pair using OPTIGA™ Trust M. The generated private key could be either stored in OPTIGA™ Trust M (static private key from key store or volatile session based) or exported to host.</p>
+<p>In case of session based, the instance internally acquires one of the OPTIGA™ Trust M sessions before invoking the actual operation.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_ecdsa_sign</td>
-<td>This operation generates signature (ECDSA) using a private key from OPTIGA™. The private key could be either from a static key store or acquired session.</td>
+<td>This operation generates signature (ECDSA) using a private key from OPTIGA™ Trust M. The private key could be either from a static key store or acquired session.</td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_ecdsa_verify</td>
-<td><p>This operation verifies the signature (ECDSA) using OPTIGA™. The public key could be</p>
+<td><p>This operation verifies the signature (ECDSA) using OPTIGA™ Trust M. The public key could be</p>
 <ul>
 <li><p>Either the public key is from host, the format of public key (from host) is provided in <a href="#ecc-public-key">ECC Public Key</a>.</p></li>
-<li><p>Or the public key is from a data object at OPTIGA™,</p></li>
+<li><p>Or the public key is from a data object at OPTIGA™ Trust M,</p></li>
 <li><blockquote>
 <p>The data object type of OID must be set to either Trust Anchor or Device Identity.</p>
 </blockquote></li>
@@ -1313,12 +1302,12 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_ecdh</td>
-<td><p>This operation generates shared secret. OPTIGA™ performs ECDH operation using the referred private key and provided public key.</p>
+<td><p>This operation generates shared secret. OPTIGA™ Trust M performs ECDH operation using the referred private key and provided public key.</p>
 <ul>
-<li><p>Here the private key is from OPTIGA™ referring to a static key store OID or session based. In case of session based, the private key is used from the session already acquired.</p></li>
+<li><p>Here the private key is from OPTIGA™ Trust M referring to a static key store OID or session based. In case of session based, the private key is used from the session already acquired.</p></li>
 <li><p>The public key has to be sourced from host.</p></li>
 </ul>
-<p>The generated shared secret can be either exported to the host or stored in OPTIGA™'s session acquired by the respective <a href="#optiga_crypt">optiga_crypt</a> instance.</p></td>
+<p>The generated shared secret can be either exported to the host or stored in OPTIGA™ Trust M's session acquired by the respective <a href="#optiga_crypt">optiga_crypt</a> instance.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1337,18 +1326,18 @@ APIs
 <tbody>
 <tr class="odd">
 <td>optiga_crypt_rsa_generate_keypair</td>
-<td>This operation generates RSA key pair using OPTIGA™. The generated private key could be either stored in OPTIGA™ (static private key from key store) or exported to host.</td>
+<td>This operation generates RSA key pair using OPTIGA™ Trust M. The generated private key could be either stored in OPTIGA™ Trust M (static private key from key store) or exported to host.</td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_rsa_sign</td>
-<td>This operation generates signature using RSA based static private key from key store (<a href="#link5d081d58_ad49_4d0e_827c_e9ac545a2f9d">optiga_key_id_t</a>) in OPTIGA™.</td>
+<td>This operation generates signature using RSA based static private key from key store (<a href="#link5d081d58_ad49_4d0e_827c_e9ac545a2f9d">optiga_key_id_t</a>) in OPTIGA™ Trust M.</td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_rsa_verify</td>
-<td><p>This operation verifies the signature using OPTIGA™. The RSA public key could be either sourced from host or referring to OID (data object which holds a certificate) in OPTIGA™.</p>
+<td><p>This operation verifies the signature using OPTIGA™ Trust M. The RSA public key could be either sourced from host or referring to OID (data object which holds a certificate) in OPTIGA™ Trust M.</p>
 <ul>
 <li><p>If the public key is from host, the format of public key (from host) is provided in <a href="#rsa-public-key">RSA Public Key</a>.</p></li>
-<li><p>If the public key is from a data object at OPTIGA™,</p></li>
+<li><p>If the public key is from a data object at OPTIGA™ Trust M,</p></li>
 <li><blockquote>
 <p>The data object type of OID must be set to either Trust Anchor or Device Identity.</p>
 </blockquote></li>
@@ -1359,26 +1348,26 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_rsa_encrypt_message</td>
-<td><p>This operation encrypts the message or data provided using OPTIGA™. The RSA public key could be either sourced from host or referring to a OID (data object which holds a certificate) in OPTIGA™.</p>
+<td><p>This operation encrypts the message or data provided using OPTIGA™ Trust M. The RSA public key could be either sourced from host or referring to a OID (data object which holds a certificate) in OPTIGA™ Trust M.</p>
 <p>The <a href="#linkaaa480c6_cc6f_4577_bb13_69c702b6352e">message length</a> that can be encrypted is limited as per <a href="#linkbdc9c86d_a9c7_41e4_801e_33afb581ee51">[RFC8017]</a>. The caller of this operation has to take care of chaining of message if message length is more than supported in a single operation.</p>
 <p>For example, in case of <a href="#linka933b89a_9a3e_42e2_bdde_f1d36912760f">OPTIGA_RSAES_PKCS1_V15</a> and RSA 1024 bit key length, the maximum allowed <a href="#linkaaa480c6_cc6f_4577_bb13_69c702b6352e">message length</a> is [128 (key length) – 11] = 117 bytes.</p>
 <p>The examples for the format of public key (from host) are provided in <a href="#rsa-public-key">RSA Public Key</a>.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_rsa_encrypt_session</td>
-<td><p>This operation encrypts the data from acquired session in OPTIGA™. The RSA public key could be either sourced from host or referring to OID (data object which holds a certificate) in OPTIGA™.</p>
-<p>If the shielded connection (OPTIGA_COMMS_SHIELDED_CONNECTION) is enabled, By default the optiga_cmd sends the command to OPTIGA™ with confidentiality protection.</p></td>
+<td><p>This operation encrypts the data from acquired session in OPTIGA™ Trust M. The RSA public key could be either sourced from host or referring to OID (data object which holds a certificate) in OPTIGA™ Trust M.</p>
+<p>If the shielded connection (OPTIGA_COMMS_SHIELDED_CONNECTION) is enabled, By default the optiga_cmd sends the command to OPTIGA™ Trust M with confidentiality protection.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_rsa_decrypt_and_export</td>
-<td><p>This operation decrypts the provided encrypted message using a RSA private key from OPTIGA™ and exports the decrypted message to the host.</p>
+<td><p>This operation decrypts the provided encrypted message using a RSA private key from OPTIGA™ Trust M and exports the decrypted message to the host.</p>
 <p>The encrypted message length must be the size of the key used to decrypt the message.</p>
 <p>For example, In case of RSA 2048 (Key size = 256 bytes), the encrypted message length is 256 bytes. The caller of this operation has to take care of chaining of encrypted message if length is more than supported in a single operation.</p>
-<p>If the shielded connection is enabled, the decrypted data/message is received with confidentiality protection from OPTIGA™.</p></td>
+<p>If the shielded connection is enabled, the decrypted data/message is received with confidentiality protection from OPTIGA™ Trust M.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_rsa_decrypt_and_store</td>
-<td><p>This operation decrypts the provided encrypted message using the referred RSA static private key from OPTIGA™ and stores message in the acquired session.</p>
+<td><p>This operation decrypts the provided encrypted message using the referred RSA static private key from OPTIGA™ Trust M and stores message in the acquired session.</p>
 <p>The encrypted message length must be the size of the key used to decrypt the message. For example, In case of RSA 2048 (Key size = 256 bytes), the encrypted message length is 256 bytes.</p></td>
 </tr>
 <tr class="even">
@@ -1412,97 +1401,97 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_generate_key</td>
-<td>This operation generates symmetric key (e.g. AES) using OPTIGA™. The generated key could be either stored at OPTIGA™ (static key from key store) or exported to host.</td>
+<td>This operation generates symmetric key (e.g. AES) using OPTIGA™ Trust M. The generated key could be either stored at OPTIGA™ Trust M (static key from key store) or exported to host.</td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_symmetric_encrypt_ecb</td>
-<td><p>This operation encrypts (<a href="#linkfa0cf4f2_9ef3_4a17_9e22_3479f7b1d576">OPTIGA_SYMMETRIC_ECB</a> mode) the data provided using OPTIGA™.</p>
+<td><p>This operation encrypts (<a href="#linkfa0cf4f2_9ef3_4a17_9e22_3479f7b1d576">OPTIGA_SYMMETRIC_ECB</a> mode) the data provided using OPTIGA™ Trust M.</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ in one transaction, then plain data will be sent to OPTIGA™ in multiple fragments (each fragment is block length aligned) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ Trust M in one transaction, then plain data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment is block length aligned) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_encrypt</td>
-<td><p>This operation encrypts (symmetric) MAC for the data provided using OPTIGA™. In case of MAC only based operations (for example, CBC-MAC, CMAC), only the MAC is returned.</p>
+<td><p>This operation encrypts (symmetric) MAC for the data provided using OPTIGA™ Trust M. In case of MAC only based operations (for example, CBC-MAC, CMAC), only the MAC is returned.</p>
 <ul>
-<li><p>Internal padding is performed by OPTIGA™ in case of <a href="#linka10d8f24_997b_4527_a899_3a8ff6232392">OPTIGA_SYMMETRIC_CMAC</a>, if the data provided is not block aligned while finalizing the operation.</p></li>
-<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ in one transaction, then plain data will be sent to OPTIGA™ in multiple fragments internally.</p></li>
+<li><p>Internal padding is performed by OPTIGA™ Trust M in case of <a href="#linka10d8f24_997b_4527_a899_3a8ff6232392">OPTIGA_SYMMETRIC_CMAC</a>, if the data provided is not block aligned while finalizing the operation.</p></li>
+<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ Trust M in one transaction, then plain data will be sent to OPTIGA™ Trust M in multiple fragments internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_symmetric_encrypt_start</td>
-<td><p>This operation initiates encryption (symmetric) sequence for the provided data using OPTIGA™. The encrypted data gets returned to the host in terms of blocks (block length is based on the encryption mdoe chosen).</p>
+<td><p>This operation initiates encryption (symmetric) sequence for the provided data using OPTIGA™ Trust M. The encrypted data gets returned to the host in terms of blocks (block length is based on the encryption mdoe chosen).</p>
 <ul>
 <li><p>In case of generating MAC, the generated MAC gets returned with the successful optiga_crypt_symmetric_encrypt_final operation.</p></li>
-<li><p>If the length of plain data can't be sent to OPTIGA™ in one transaction, then plain data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned) internally.</p></li>
+<li><p>If the length of plain data can't be sent to OPTIGA™ Trust M in one transaction, then plain data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_encrypt_continue</td>
-<td><p>This operation encrypts (symmetric) the data provided using OPTIGA™.</p>
+<td><p>This operation encrypts (symmetric) the data provided using OPTIGA™ Trust M.</p>
 <ul>
 <li><p>In case of generating MAC, the generated MAC gets returned with the successful optiga_crypt_symmetric_encrypt_final operation.</p></li>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ in one transaction, then plain data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of plain data to be encrypted can't be sent to OPTIGA™ Trust M in one transaction, then plain data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_symmetric_encrypt_final</td>
-<td><p>This operation encrypts (symmetric) the data provided using OPTIGA™.</p>
+<td><p>This operation encrypts (symmetric) the data provided using OPTIGA™ Trust M.</p>
 <ul>
 <li><p>In case of generating MAC, the generated MAC only gets returned upon successful completion of this operation.</p></li>
-<li><p>Internal padding is performed by OPTIGA™ in case of <a href="#linka10d8f24_997b_4527_a899_3a8ff6232392">OPTIGA_SYMMETRIC_CMAC</a>, if the data provided is not block aligned while finalizing the operation.</p></li>
-<li><p>If the length of plain_data to be encrypted can't be sent to OPTIGA™ in one transaction, then plain_data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
+<li><p>Internal padding is performed by OPTIGA™ Trust M in case of <a href="#linka10d8f24_997b_4527_a899_3a8ff6232392">OPTIGA_SYMMETRIC_CMAC</a>, if the data provided is not block aligned while finalizing the operation.</p></li>
+<li><p>If the length of plain_data to be encrypted can't be sent to OPTIGA™ Trust M in one transaction, then plain_data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_decrypt_ecb</td>
-<td><p>This operation encrypts (ECB mode as specified by <a href="#link9ac0151a_a12c_476d_89d2_84a062596867">[SP 800-38A]</a>) the data provided using OPTIGA™.</p>
+<td><p>This operation encrypts (ECB mode as specified by <a href="#link9ac0151a_a12c_476d_89d2_84a062596867">[SP 800-38A]</a>) the data provided using OPTIGA™ Trust M.</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of encrypted data can't be sent to OPTIGA™ in one transaction, then encrypted data will be sent to OPTIGA™ in multiple fragments (each fragment is block length aligned) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of encrypted data can't be sent to OPTIGA™ Trust M in one transaction, then encrypted data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment is block length aligned) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_symmetric_decrypt</td>
-<td><p>This operation decrypts the provided encrypted data using OPTIGA™ and returns the plain data to the host.</p>
+<td><p>This operation decrypts the provided encrypted data using OPTIGA™ Trust M and returns the plain data to the host.</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of encrypted data to be decrypted can't be sent to OPTIGA™ in one transaction, then encrypted data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of encrypted data to be decrypted can't be sent to OPTIGA™ Trust M in one transaction, then encrypted data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_decrypt_start</td>
-<td><p>This operation initiates the decrypt (symmetric) sequence for the provided encrypted data using OPTIGA™. The plain data gets exported to the host in terms of blocks (block length is based on the encrypted data chosen)</p>
+<td><p>This operation initiates the decrypt (symmetric) sequence for the provided encrypted data using OPTIGA™ Trust M. The plain data gets exported to the host in terms of blocks (block length is based on the encrypted data chosen)</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of encrypted data can't be sent to OPTIGA™ in one transaction, then encrypted data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned).</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of encrypted data can't be sent to OPTIGA™ Trust M in one transaction, then encrypted data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned).</p></li>
 </ul>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_symmetric_decrypt_continue</td>
-<td><p>This operation decrypts the provided encrypted data using OPTIGA™ and returns the decrypted data to the host.</p>
+<td><p>This operation decrypts the provided encrypted data using OPTIGA™ Trust M and returns the decrypted data to the host.</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of encrypted data can't be sent to OPTIGA™ in one transaction, then encrypted data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of encrypted data can't be sent to OPTIGA™ Trust M in one transaction, then encrypted data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_symmetric_decrypt_final</td>
-<td><p>This operation decrypts the provided encrypted data using OPTIGA™ and returns the decrypted data to the host.</p>
+<td><p>This operation decrypts the provided encrypted data using OPTIGA™ Trust M and returns the decrypted data to the host.</p>
 <ul>
-<li><p>No internal padding is performed by OPTIGA™.</p></li>
-<li><p>If the length of encrypted data can't be sent to OPTIGA™ in one transaction, then encrypted data will be sent to OPTIGA™ in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
+<li><p>No internal padding is performed by OPTIGA™ Trust M.</p></li>
+<li><p>If the length of encrypted data can't be sent to OPTIGA™ Trust M in one transaction, then encrypted data will be sent to OPTIGA™ Trust M in multiple fragments (each fragment must be block length aligned except the last) internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
@@ -1527,31 +1516,31 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_hmac</td>
-<td><p>This operation performs hmac operation using a shared secret at OPTIGA™.</p>
-<p>If the length of input data can't be sent to OPTIGA™ in one transaction, then input data will be sent to OPTIGA™ in multiple fragments internally.</p>
+<td><p>This operation performs hmac operation using a shared secret at OPTIGA™ Trust M.</p>
+<p>If the length of input data can't be sent to OPTIGA™ Trust M in one transaction, then input data will be sent to OPTIGA™ Trust M in multiple fragments internally.</p>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_hmac_start</td>
 <td><p>This operation initiates hmac operation.</p>
 <ul>
-<li><p>If the length of input data can't be sent to OPTIGA™ in one transaction, then input data will be sent to OPTIGA™ in multiple fragments internally.</p></li>
+<li><p>If the length of input data can't be sent to OPTIGA™ Trust M in one transaction, then input data will be sent to OPTIGA™ Trust M in multiple fragments internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_hmac_update</td>
-<td><p>This operation performs hmac operation for the data provided using OPTIGA™.</p>
+<td><p>This operation performs hmac operation for the data provided using OPTIGA™ Trust M.</p>
 <ul>
-<li><p>If the length input data can't be sent to OPTIGA™ in one transaction, then input data will be sent to OPTIGA™ in multiple fragments internally.</p></li>
+<li><p>If the length input data can't be sent to OPTIGA™ Trust M in one transaction, then input data will be sent to OPTIGA™ Trust M in multiple fragments internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_hmac_finalize</td>
-<td><p>This operation performs hmac operation for the data provided using OPTIGA™.</p>
+<td><p>This operation performs hmac operation for the data provided using OPTIGA™ Trust M.</p>
 <ul>
-<li><p>If the length of input data can't be sent to OPTIGA™ in one transaction, then input data will be sent to OPTIGA™ in multiple fragments internally.</p></li>
+<li><p>If the length of input data can't be sent to OPTIGA™ Trust M in one transaction, then input data will be sent to OPTIGA™ Trust M in multiple fragments internally.</p></li>
 </ul>
 <p>Note: The shielded connection protection level with command protection is implicitly enabled if the Shielded connection is enabled.</p></td>
 </tr>
@@ -1574,22 +1563,22 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_generate_auth_code</td>
-<td>This operation generates random data using OPTIGA™ which gets stored in the acquired session context at OPTIGA™. The random stored in the acquired session context gets used as authorization challenge for hmac verify (optiga_crypt_hmac_verify) kind of operations.</td>
+<td>This operation generates random data using OPTIGA™ Trust M which gets stored in the acquired session context at OPTIGA™ Trust M. The random stored in the acquired session context gets used as authorization challenge for hmac verify (optiga_crypt_hmac_verify) kind of operations.</td>
 </tr>
 <tr class="odd">
 <td>optiga_crypt_hmac_verify</td>
-<td><p>This operation performs hmac verification for the provided authorization value using OPTIGA™.</p>
+<td><p>This operation performs hmac verification for the provided authorization value using OPTIGA™ Trust M.</p>
 <ul>
 <li><p>This operation uses the session already acquired to store the authentication code (generated using optiga_crypt_generate_auth_code).</p></li>
 <li><p>The size of input data is based on the respective hash algorithm used in the hmac scheme (630 bytes – <a href="#link79bb7fdc_58df_48a0_bba7_4d179937a515">hmac_length</a>).</p></li>
 </ul>
-<p>Upon successful verification of provided <a href="#link79bb7fdc_58df_48a0_bba7_4d179937a515">hmac</a>, the achieved AUTO state using the respective <a href="#link79bb7fdc_58df_48a0_bba7_4d179937a515">secret</a> is maintained by OPTIGA™. The achieved state can be cleared by invoking optiga_crypt_clear_auto_state operation.</p>
+<p>Upon successful verification of provided <a href="#link79bb7fdc_58df_48a0_bba7_4d179937a515">hmac</a>, the achieved AUTO state using the respective <a href="#link79bb7fdc_58df_48a0_bba7_4d179937a515">secret</a> is maintained by OPTIGA™ Trust M. The achieved state can be cleared by invoking optiga_crypt_clear_auto_state operation.</p>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the shielded connection is enabled.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_crypt_clear_auto_state</td>
-<td><p>This operation clears the achieved authorization (AUTO) state (using optiga_crypt_hmac_verify operation) at OPTIGA™.</p>
-<p>The acquired session gets released after completion of this operation (irrespective of status of the operation once after the command is sent to OPTIGA™).</p>
+<td><p>This operation clears the achieved authorization (AUTO) state (using optiga_crypt_hmac_verify operation) at OPTIGA™ Trust M.</p>
+<p>The acquired session gets released after completion of this operation (irrespective of status of the operation once after the command is sent to OPTIGA™ Trust M).</p>
 <p>Note: The shielded connection protection level with response protection is implicitly enabled if the shielded connection is enabled.</p></td>
 </tr>
 </tbody>
@@ -1607,7 +1596,7 @@ APIs
 <tbody>
 <tr class="odd">
 <td>optiga_crypt_tls_prf</td>
-<td><p>This operation derives shared secret or key using OPTIGA™. OPTIGA™ performs PRF (as specified in TLS v1.2) operation as per type chosen using the referred data object ID or session ID holding a secret.</p>
+<td><p>This operation derives shared secret or key using OPTIGA™ Trust M. OPTIGA™ Trust M performs PRF (as specified in TLS v1.2) operation as per type chosen using the referred data object ID or session ID holding a secret.</p>
 <p>There are dedicated APIs (macro based) for the respective hash algorithm used as part of PRF.</p>
 <ul>
 <li><p>optiga_crypt_tls_prf_sha256</p></li>
@@ -1618,8 +1607,8 @@ APIs
 </tr>
 <tr class="even">
 <td>optiga_crypt_hkdf</td>
-<td><p>This operation derives shared secret or key using OPTIGA™.</p>
-<p>The OPTIGA™ performs HKDF (as specified in <a href="#linkcc687f29_3fc6_49c9_933d_0bf3aeeda86b">[RFC5869]</a>) operation using the referred data object ID or session ID, which holds a secret.</p>
+<td><p>This operation derives shared secret or key using OPTIGA™ Trust M.</p>
+<p>The OPTIGA™ Trust M performs HKDF (as specified in <a href="#linkcc687f29_3fc6_49c9_933d_0bf3aeeda86b">[RFC5869]</a>) operation using the referred data object ID or session ID, which holds a secret.</p>
 <p>There are dedicated APIs (macro based) for the respective hash algorithm used as part of HKDF.</p>
 <ul>
 <li><p>optiga_crypt_hkdf_sha256</p></li>
@@ -1634,14 +1623,14 @@ APIs
 ### optiga\_util
 
 The [optiga\_util](#optiga_util) module provides useful utilities to
-manage the OPTIGA™ (open/close) and data/key objects with the following
+manage the OPTIGA™ Trust M (open/close) and data/key objects with the following
 characteristics:
 
   - Multiple instances could be created to allow concurrent access to
     other services.
 
   - Uses *optiga\_cmd* module to interact with the
-OPTIGA™*.*
+OPTIGA™ Trust M*.*
 
 #### Basic (e.g. initialization, shielded connection settings) operations
 
@@ -1666,7 +1655,7 @@ OPTIGA™*.*
 </tr>
 <tr class="odd">
 <td>optiga_crypt_set_comms_params</td>
-<td><p>This operation sets the shielded connection(Encrypted communication between Host and OPTIGA™) parameters like version, protection level, etc.</p>
+<td><p>This operation sets the shielded connection(Encrypted communication between Host and OPTIGA™ Trust M) parameters like version, protection level, etc.</p>
 <p>The possible shielded connection parameter types that can be set are version (e.g. pre-shared secret based) and protection level (e.g. command protection, response protection, both or none).</p>
 <p>There are macros defined based on this API to ease the usage of shielded connection to set parameters and levels of protection.</p>
 <ul>
@@ -1691,18 +1680,18 @@ OPTIGA™*.*
 <tbody>
 <tr class="odd">
 <td>optiga_util_open_application</td>
-<td><p>This operation initializes or restores (from a hibernate state if performed) the application on OPTIGA™.</p>
-<p>Since after cold or warm reset, all applications residing on the OPTIGA™ are closed, an application has to be opened before using it. This operation initializes the application context on OPTIGA™.</p>
+<td><p>This operation initializes or restores (from a hibernate state if performed) the application on OPTIGA™ Trust M.</p>
+<p>Since after cold or warm reset, all applications residing on the OPTIGA™ Trust M are closed, an application has to be opened before using it. This operation initializes the application context on OPTIGA™ Trust M.</p>
 <p>This operation must be issued once at least before invoking any other operations either from <a href="#optiga_util">optiga_util</a> or <a href="#optiga_crypt">optiga_crypt</a>.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_util_close_application</td>
-<td><p>This operation closes the application or on OPTIGA™.</p>
-<p>With the hibernate option, the OPTIGA™ stores the current context of application and restores with next optiga_util_open_application.</p>
-<p>With this option, the host can power off the OPTIGA™ when not in use and restore with optiga_util_open_application when required to avoid the power consumption by OPTIGA™ during the unused period to keep the session context intact.</p>
-<p>In this operation, after OPTIGA™ confirms the storing of state/context (command is successfully executed), the Access Layer switches off the OPTIGA™ (if GPIOs are configured during control the Vcc connected to OPTIGA™).</p>
-<p>After successful completion of this operation, OPTIGA™ will not perform any other operations until the next successful optiga_util_open_application operation.</p>
-<p>Note: In case of Security Event Counter (SEC) &gt; 0, OPTIGA™ doesn't allow the hibernate operation. Hence this operation leads to failure.</p></td>
+<td><p>This operation closes the application or on OPTIGA™ Trust M.</p>
+<p>With the hibernate option, the OPTIGA™ Trust M stores the current context of application and restores with next optiga_util_open_application.</p>
+<p>With this option, the host can power off the OPTIGA™ Trust M when not in use and restore with optiga_util_open_application when required to avoid the power consumption by OPTIGA™ Trust M during the unused period to keep the session context intact.</p>
+<p>In this operation, after OPTIGA™ Trust M confirms the storing of state/context (command is successfully executed), the Access Layer switches off the OPTIGA™ Trust M (if GPIOs are configured during control the Vcc connected to OPTIGA™ Trust M).</p>
+<p>After successful completion of this operation, OPTIGA™ Trust M will not perform any other operations until the next successful optiga_util_open_application operation.</p>
+<p>Note: In case of Security Event Counter (SEC) &gt; 0, OPTIGA™ Trust M doesn't allow the hibernate operation. Hence this operation leads to failure.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1721,28 +1710,28 @@ OPTIGA™*.*
 <tbody>
 <tr class="odd">
 <td>optiga_util_read_data</td>
-<td>This operation reads the data from the specified data object in OPTIGA™.</td>
+<td>This operation reads the data from the specified data object in OPTIGA™ Trust M.</td>
 </tr>
 <tr class="even">
 <td>optiga_util_read_metadata</td>
-<td>This operation reads the metadata from the specified data object in OPTIGA™.</td>
+<td>This operation reads the metadata from the specified data object in OPTIGA™ Trust M.</td>
 </tr>
 <tr class="odd">
 <td>optiga_util_write_data</td>
-<td><p>This operation writes data to the specified data object in OPTIGA™.</p>
+<td><p>This operation writes data to the specified data object in OPTIGA™ Trust M.</p>
 <p>Type of write operation - (Erase &amp; Write) or Write.</p>
 <p>OPTIGA_UTIL_ERASE_AND_WRITE (Erase &amp; Write) - Erases the complete data object and writes the given data starting from the specified offset</p>
 <p>OPTIGA_UTIL_WRITE_ONLY (Write) - Writes the given data starting from the specified offset.</p></td>
 </tr>
 <tr class="even">
 <td>optiga_util_write_metadata</td>
-<td>This operation writes metadata to the specified data object in OPTIGA™.</td>
+<td>This operation writes metadata to the specified data object in OPTIGA™ Trust M.</td>
 </tr>
 <tr class="odd">
 <td>optiga_util_update_count</td>
-<td><p>This operation updates counter data object optiga_counter_oid with the provided count value in OPTIGA™.</p>
+<td><p>This operation updates counter data object optiga_counter_oid with the provided count value in OPTIGA™ Trust M.</p>
 <p>The counter in counter data object optiga_counter_oid gets incremented/decremented up to the threshold value depending on the counter type set.</p>
-<p>Any further attempts after reaching the threshold value, the OPTIGA™ returns an error.</p></td>
+<p>Any further attempts after reaching the threshold value, the OPTIGA™ Trust M returns an error.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1761,9 +1750,9 @@ OPTIGA™*.*
 <tbody>
 <tr class="odd">
 <td>optiga_util_protected_update_start</td>
-<td><p>This operation initiates the protected update of data/key objects in OPTIGA™.</p>
+<td><p>This operation initiates the protected update of data/key objects in OPTIGA™ Trust M.</p>
 <p><em>Note: OPTIGA™ Trust M V1 doesn’t support confidentiality update and key &amp; metadata update.</em></p>
-<p>The manifest provided will be validated by OPTIGA™. Upon the successful completion of this operation, The fragments (which contain the data to be updated) are to be sent using optiga_util_protected_update_continue and/or optiga_util_protected_update_final.</p>
+<p>The manifest provided will be validated by OPTIGA™ Trust M. Upon the successful completion of this operation, The fragments (which contain the data to be updated) are to be sent using optiga_util_protected_update_continue and/or optiga_util_protected_update_final.</p>
 <p>The protected update needs to be performed in a strict sequence. The strict lock acquired gets released either by the successful completion of optiga_util_protected_update_final or any failure until the optiga_util_protected_update_final is completed.</p>
 <p>Once the <a href="#optiga_util">optiga_util</a> instance is used with optiga_util_protected_update_start successfully,</p>
 <ul>
@@ -1773,19 +1762,19 @@ OPTIGA™*.*
 </tr>
 <tr class="even">
 <td>optiga_util_protected_update_continue</td>
-<td><p>This operation sends the fragments to OPTIGA™.</p>
+<td><p>This operation sends the fragments to OPTIGA™ Trust M.</p>
 <p>If the protected update contains a single fragment, then the fragment has to be sent using the <a href="#link55eda337_42fa_4af6_adfe_523349bd15bf">optiga_util_protected_update_final</a> and the <a href="#link66dac1dc_1489_4582_94a3_18c1e712658c">optiga_util_protected_update_continue</a> is skipped.</p>
 <p>E.g., The number of fragments are n,</p>
 <p>n = 1, the fragment must be sent using optiga_util_protected_update_final and optiga_util_protected_update_continue is not used.</p>
 <p>n &gt; 1, the first and up to (n-1) fragments must be sent using optiga_util_protected_update_continue and the last fragment must be sent using optiga_util_protected_update_final.</p>
 <p>Notes:</p>
 <ul>
-<li><p>The local_host_application must take care of sending the fragments in the correct order to OPTIGA™ as each fragment contains the integrity of the next fragment. The fragment size must be 640 bytes.</p></li>
+<li><p>The local_host_application must take care of sending the fragments in the correct order to OPTIGA™ Trust M as each fragment contains the integrity of the next fragment. The fragment size must be 640 bytes.</p></li>
 </ul></td>
 </tr>
 <tr class="odd">
 <td>optiga_util_protected_update_final</td>
-<td>This operation sends the last fragment and finalizes the protected update of OPTIGA™ data object and releases the strict lock acquired. The size of the fragment can be up to 640 bytes.</td>
+<td>This operation sends the last fragment and finalizes the protected update of OPTIGA™ Trust M data object and releases the strict lock acquired. The size of the fragment can be up to 640 bytes.</td>
 </tr>
 </tbody>
 </table>
@@ -1916,7 +1905,7 @@ APIs](#enabler-apis).
 
 <span id="link5725d2d1_5681_4e2e_b893_247e07f1a504" class="anchor"></span>Types
 of ECC Curves supported by
-OPTIGA™
+OPTIGA™ Trust M
 
 24. optiga\_ecc\_curve\_t
 
@@ -1932,7 +1921,7 @@ OPTIGA™
 Note*:* OPTIGA™ Trust M V1 doesn’t support Brainpool and ECC NIST P 521
 curves.
 
-Hash context length/size while using OPTIGA™ for digest
+Hash context length/size while using OPTIGA™ Trust M for digest
 generation.
 
 25. optiga\_hash\_context\_length\_t
@@ -1941,7 +1930,7 @@ generation.
 | --------------------------------------- | ------------------------------------------------- |
 | OPTIGA\_HASH\_CONTEXT\_LENGTH\_SHA\_256 | Hash context length (in bytes) in case of SHA256. |
 
-Types of digest/hash generation supported by OPTIGA™
+Types of digest/hash generation supported by OPTIGA™ Trust M
 
 1.  > optiga\_hash\_type\_t
 
@@ -1950,7 +1939,7 @@ Types of digest/hash generation supported by OPTIGA™
 | OPTIGA\_HASH\_TYPE\_SHA\_256 | Generate digest using SHA256 |
 
 Types of key derivation based on HKDF supported by
-OPTIGA™.
+OPTIGA™ Trust M.
 
 2.  > optiga\_hkdf\_type\_t
 
@@ -1963,7 +1952,7 @@ OPTIGA™.
 Note: OPTIGA™ Trust M V1 doesn’t support HKDF.
 
 Types of hmac generation supported by
-OPTIGA™.
+OPTIGA™ Trust M.
 
 3.  > optiga\_hmac\_type\_t
 
@@ -1978,7 +1967,7 @@ HMAC.
 
 <span id="link5d081d58_ad49_4d0e_827c_e9ac545a2f9d" class="anchor"></span>
 
-Key slot IDs in OPTIGA™
+Key slot IDs in OPTIGA™ Trust M
 
 4.  > optiga\_key\_id\_t
 
@@ -2039,7 +2028,7 @@ Types of Key usage.
 The multiple key usage types can be selected based on the requirement
 and key type.
 
-For example, if the private key from OPTIGA™ to be used for key
+For example, if the private key from OPTIGA™ Trust M to be used for key
 agreement (Diffie-Hellmann) and signature generation purpose, then the
 key usage can be chosen as
 ([OPTIGA\_KEY\_USAGE\_SIGN](#link6aa3bef1_c5a9_4ac0_9146_008ca1645b1a) |
@@ -2054,7 +2043,7 @@ key usage can be chosen as
 | <span id="link6aa3bef1_c5a9_4ac0_9146_008ca1645b1a" class="anchor"></span>OPTIGA\_KEY\_USAGE\_SIGN           | Allows to use the private key for the signature generation as part of sign command                                        |
 | <span id="linkd886b552_6ca0_41fb_a15a_98639d0267b5" class="anchor"></span>OPTIGA\_KEY\_USAGE\_KEY\_AGREEMENT | Allows to use the private key for key agreement (for example, ECDH operations)                                            |
 
-Types of random number generation supported by OPTIGA™
+Types of random number generation supported by OPTIGA™ Trust M
 
 6.  > optiga\_rng\_type\_t
 
@@ -2063,7 +2052,7 @@ Types of random number generation supported by OPTIGA™
 | OPTIGA\_RNG\_TYPE\_TRNG | Generate Random number using TRNG |
 | OPTIGA\_RNG\_TYPE\_DRNG | Generate Random number using DRNG |
 
-RSA Encryption schemes supported by OPTIGA™ for encryption and
+RSA Encryption schemes supported by OPTIGA™ Trust M for encryption and
 decryption.
 
 7.  > optiga\_rsa\_encryption\_scheme\_t
@@ -2074,7 +2063,7 @@ decryption.
 
 <span id="link4acbe84f_6f74_4997_89c1_a5cd21cc204a" class="anchor"></span>Types
 of RSA keys supported by
-OPTIGA™
+OPTIGA™ Trust M
 
 8.  > optiga\_rsa\_key\_type\_t
 
@@ -2083,7 +2072,7 @@ OPTIGA™
 | OPTIGA\_RSA\_KEY\_1024\_BIT\_EXPONENTIAL | RSA Key type - 1024 Bit exponential |
 | OPTIGA\_RSA\_KEY\_2048\_BIT\_EXPONENTIAL | RSA Key type - 2048 Bit exponential |
 
-RSA Signature schemes supported by OPTIGA™ for sign and
+RSA Signature schemes supported by OPTIGA™ Trust M for sign and
 verify
 
 9.  > optiga\_rsa\_signature\_scheme\_t
@@ -2096,7 +2085,7 @@ verify
 
 Note: OPTIGA™ Trust M V1 doesn’t support RSA SSA PKCS\#1 v1.5 SHA512.
 
-Symmetric Encryption schemes supported by OPTIGA™ for encryption and
+Symmetric Encryption schemes supported by OPTIGA™ Trust M for encryption and
 decryption.
 
 10. > optiga\_symmetric\_encryption\_mode\_t
@@ -2112,7 +2101,7 @@ Note: OPTIGA™ Trust M V1 doesn’t support above specified symmetric
 encryption and MAC
 algorithms.<span id="linkbdd97804_3f75_44df_882d_fd1c8e60c327" class="anchor"></span>
 
-Types of symmetric keys supported by OPTIGA™
+Types of symmetric keys supported by OPTIGA™ Trust M
 
 11. > optiga\_symmetric\_key\_type\_t
 
@@ -2125,7 +2114,7 @@ Types of symmetric keys supported by OPTIGA™
 Note: OPTIGA™ Trust M V1 doesn’t support above specified symmetric keys.
 
 Types of key derivation based on TLSv1.2 PRF supported by
-OPTIGA™.
+OPTIGA™ Trust M.
 
 12. > optiga\_tls\_prf\_type\_t
 
@@ -2139,13 +2128,13 @@ Note: OPTIGA™ Trust M V1 doesn’t support PRF with SHA384 and SHA512.
 
 # OPTIGA™ Trust M External Interface
 
-This chapter provides the detailed definition of the OPTIGA™ device
+This chapter provides the detailed definition of the OPTIGA™ Trust M device
 commands and responses available at its
 [\[I²C\]](#linkf63291ff_afa9_4949_978d_384708069f41) interface.
 
 ## Warm Reset
 
-The Warm Reset (reset w/o power off/on cycle) of the OPTIGA™ might be
+The Warm Reset (reset w/o power off/on cycle) of the OPTIGA™ Trust M might be
 triggered either by HW signal or by SW. In case of a HW triggered Warm
 Reset the RST pin must be set to low (for more details refer to [\[Data
 Sheet M\]](#linkd7d14db5_70f4_4f45_8b27_cdf8ac293321)). In case of a SW
@@ -2155,7 +2144,7 @@ register (for more details refer to
 
 ## Power Consumption
 
-When operating, the power consumption of OPTIGA™ is limited to meet the
+When operating, the power consumption of OPTIGA™ Trust M is limited to meet the
 requirements regarding the power limitation set by the Host. The power
 limitation is implemented by utilizing the current limitation feature of
 the underlying HW device in steps of 1 mA from 6mA to 15 mA with a
@@ -2164,14 +2153,14 @@ AC‘s](#linkef83484d_6e78_4153_8941_0ab88a272734) OID '0xE0C4').
 
 ### Sleep Mode
 
-The OPTIGA™ automatically enters a low-power mode after a configurable
-delay. Once it has entered Sleep mode, the OPTIGA™ resumes normal
+The OPTIGA™ Trust M automatically enters a low-power mode after a configurable
+delay. Once it has entered Sleep mode, the OPTIGA™ Trust M resumes normal
 operation as soon as its address is detected on the I2C bus.
 
-In case no command is sent to the OPTIGA™ it behaves as shown in Figure
+In case no command is sent to the OPTIGA™ Trust M it behaves as shown in Figure
 "Go-to-Sleep diagram".
 
-(1) As soon as the OPTIGA™ is idle it starts to count down the “delay to
+(1) As soon as the OPTIGA™ Trust M is idle it starts to count down the “delay to
 sleep” time (tSDY).
 
 (2) In case this time elapses the device enters the “go to sleep”
@@ -2179,7 +2168,7 @@ procedure.
 
 (3) The “go to sleep” procedure waits until all idle tasks are finished
 (e.g. counting down the SEC). In case all idle tasks are finished and no
-command is pending, the OPTIGA™ enters sleep mode.
+command is pending, the OPTIGA™ Trust M enters sleep mode.
 
 |                                       |
 | ------------------------------------- |
@@ -2189,7 +2178,7 @@ Figure 24 - Go-to-Sleep diagram
 
 ## Protocol Stack
 
-The OPTIGA™ is an I2C slave device. The protocol stack from the physical
+The OPTIGA™ Trust M is an I2C slave device. The protocol stack from the physical
 up to the application layer is specified in
 [\[IFX\_I2C\]](#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4). The protocol
 is defined for point-to-point connection and a multi-layer approach with
@@ -2214,7 +2203,7 @@ those definitions is used for this protocol:
 
   - Single-Master / Multi-Slave configuration
 
-  - Speed (Fast Mode (Fm) up to 400 KHz; optional (Fm+) up to 1000 KHz)
+  - Speed (Fast Mode (Fm) up to 400 kHz; optional (Fm+) up to 1000 kHz)
 
   - IFX standardized register interface.
 
@@ -2228,18 +2217,18 @@ layer consists of more data as the maximum packet size of the Data Link
 Layer supports.
 
 The **Presentation Layer** is optional and provides the communication
-protection (integrity and confidentiality) according to the OPTIGA™
+protection (integrity and confidentiality) according to the OPTIGA™ Trust M
 Shielded Connection technology specified by
-[\[IFX\_I2C\]](#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4). The OPTIGA™
+[\[IFX\_I2C\]](#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4). The OPTIGA™ Trust M
 Shielded Connection technology gets controlled by the [Enabler
 APIs](#enabler-apis) through its Service Layer components.
 
-The **Application Layer** provides the functionality of the OPTIGA™ as
+The **Application Layer** provides the functionality of the OPTIGA™ Trust M as
 defined in chapter [Commands](#command-definitions) of this
 document.
 
 <span id="linke6d26abc_c5b5_45b6_841b_efee0e4b8b1d" class="anchor"></span>The
-protocol variation for the OPTIGA™ is defined by Table "[Protocol Stack
+protocol variation for the OPTIGA™ Trust M is defined by Table "[Protocol Stack
 Variation](#linke6d26abc_c5b5_45b6_841b_efee0e4b8b1d)".
 
 13. > Protocol stack
@@ -2255,13 +2244,13 @@ variation
 | TRANS\_REPEAT      | 3         |                                                                                           |
 | PWR\_SAVE\_TIMEOUT |           | Not implemented                                                                           |
 | BASE\_ADDR         | 0x30      | I2C base address default                                                                  |
-| MAX\_SCL\_FREQU    | 1000\[2\] | KHz                                                                                       |
+| MAX\_SCL\_FREQU    | 1000\[2\] | kHz                                                                                       |
 | GUARD\_TIME        | 50        | µs                                                                                        |
 | I2C\_STATE         |           | SOFT\_RESET = 1; CONT\_READ = 0; REP\_START = 0; CLK\_STRETCHING = 0; PRESENT\_LAYER = 1; |
 
 ## Commands
 
-This chapter provides the detailed description of the OPTIGA™ command
+This chapter provides the detailed description of the OPTIGA™ Trust M command
 coding and how those commands
 behave.
 
@@ -2269,7 +2258,7 @@ behave.
 
 <span id="link545fc126_9458_4808_8513_3a502bdb4c75" class="anchor"></span>Table
 '[Command Codes](#link545fc126_9458_4808_8513_3a502bdb4c75)' lists the
-command codes for the functionality provided by the OPTIGA™.
+command codes for the functionality provided by the OPTIGA™ Trust M.
 
 14. > Command codes
 
@@ -2315,7 +2304,7 @@ fields contained in a command and response APDU.
 | OutData | Response data section                                                                                        |
 
 The Generic Source and Destination definition allows providing and
-returning of command and response data from or to three types of objects
+returning of command and response data from or to the three types of objects
 which are defined within the InData part of the command definition. Each
 object is defined by an associated TLV object. For commands, the source
 of data fed in the command execution could be actual input data, the
@@ -2511,7 +2500,7 @@ code is stored.
 <td>Unsupported certificate</td>
 <td>0x2A</td>
 <td><ul>
-<li><p>The size of the certificate is more than the 1300 bytes where OPTIGA™ can't parse the certificate internally due to insufficient memory. (or)</p></li>
+<li><p>The size of the certificate is more than the 1300 bytes where OPTIGA™ Trust M can't parse the certificate internally due to insufficient memory. (or)</p></li>
 <li><p>At least one cryptographic algorithm specified in the certificate is not supported (e.g. hash or sign algorithms).</p></li>
 </ul></td>
 </tr>
@@ -2540,8 +2529,8 @@ code is stored.
 
 #### OpenApplication
 
-This command is used to open an application on the OPTIGA™. Since after
-cold or warm Reset all applications residing on the OPTIGA™ are closed,
+This command is used to open an application on the OPTIGA™ Trust M. Since after
+cold or warm Reset all applications residing on the OPTIGA™ Trust M are closed,
 an application has to be opened before using it. This command
 initializes the application context. This command might be issued
 multiple times as well to re-initialize an already opened application
@@ -2623,7 +2612,7 @@ presentation layer enabled.*
 
 #### CloseApplication
 
-This command is used to close an application on the OPTIGA™. The
+This command is used to close an application on the OPTIGA™ Trust M. The
 application to be closed gets addressed by communication means like a
 dedicated Network channel. The application context becomes invalid and
 all resources allocated at [OpenApplication](#openapplication) and
@@ -2704,7 +2693,7 @@ if SEC<sub>CURR</sub> is not same as in Security Event Counter (SEC).
 
 #### GetDataObject
 
-This command command is used to read data objects from the OPTIGA™. The
+This command command is used to read data objects from the OPTIGA™ Trust M. The
 field “Param” contains the type of data accessed. The field “InData”
 contains the OID of the data object, and optional the offset within the
 data object and maximum length to be returned with the response APDU.
@@ -2778,7 +2767,7 @@ offset & length as appropriate.*
 
 #### SetDataObject
 
-This command command is used to write data objects to the OPTIGA™. The
+This command command is used to write data objects to the OPTIGA™ Trust M. The
 field “Param” contains the type of data accessed. The field “InData”
 contains the OID of the data object, the offset within the data object,
 and the data to be written.
@@ -2851,7 +2840,7 @@ offset & length as appropriate.*
 #### SetObjectProtected
 
 This command command is used to write data or metadata objects protected
-(integrity and optionally confidentiality) to the OPTIGA™. The field
+(integrity and optionally confidentiality) to the OPTIGA™ Trust M. The field
 “Param” contains the manifest version of the update data set. The
 field “InData” contains the protected update data set to be written. The
 contained manifest addresses the protection keys and the target object.
@@ -3049,9 +3038,9 @@ Param is TRNG or DRNG.*
 
 #### EncryptSym
 
-This command is used to protect data by the OPTIGA™, based on a secret
+This command is used to protect data by the OPTIGA™ Trust M, based on a secret
 key scheme or to calculate a MAC over provided data. Those data and
-their sequence of exchange between the OPTIGA™ and the connected host
+their sequence of exchange between the OPTIGA™ Trust M and the connected host
 are defined in detail in Chapter “Supported use cases”. The data padding
 must be provided for the last block of data in case the used algorithm
 (refer to [Symmetric Modes of
@@ -3148,9 +3137,9 @@ Encrypted data</p></li>
 
 #### DecryptSym
 
-This command is used to unprotect data by the OPTIGA™ or to verify a
+This command is used to unprotect data by the OPTIGA™ Trust M or to verify a
 provided verification value, based on a secret key scheme. Those data
-and their sequence of exchange between the OPTIGA™ and the connected
+and their sequence of exchange between the OPTIGA™ Trust M and the connected
 host are defined in detail in Chapter “Supported use cases”.
 
 *<span class="underline">Notes:</span>*
@@ -3247,7 +3236,7 @@ decrypted (plain) data[46]</p></li>
 
 #### EncryptAsym
 
-This command is used to protect an arbitrary message by the OPTIGA™,
+This command is used to protect an arbitrary message by the OPTIGA™ Trust M,
 based on a public key scheme.
 
 *Note: In case the shared secret from a session is used and the
@@ -3323,7 +3312,7 @@ Message data protected</p></li>
 
 #### DecryptAsym
 
-This command is used to unprotect an arbitrary message by the OPTIGA™,
+This command is used to unprotect an arbitrary message by the OPTIGA™ Trust M,
 based on a public key scheme.
 
 *Note: In case the presentation layer protection is enabled the response
@@ -3400,10 +3389,10 @@ Message data unprotected</p></li>
 
 #### CalcHash
 
-This command is used calculating a digest of a message by the OPTIGA™.
+This command is used calculating a digest of a message by the OPTIGA™ Trust M.
 The message to be hashed gets either provided by the External World or
 could be one data object, or a part of a data object, or parts of
-multiple data objects, hosted by the OPTIGA™ whose read access rights
+multiple data objects, hosted by the OPTIGA™ Trust M whose read access rights
 are met.
 
 In case the Intermediate hash data (context of the hash sequence which
@@ -3947,7 +3936,7 @@ The response protection is up to the caller. *
 
 <span id="link5eb65ea9_01be_4ff3_b313_eb6537a31f7c" class="anchor"></span>Table
 '[Algorithm Identifier](#link5eb65ea9_01be_4ff3_b313_eb6537a31f7c)'
-lists the algorithm identifier supported by the OPTIGA™.
+lists the algorithm identifier supported by the OPTIGA™ Trust M.
 
 *Note: OPTIGA™ Trust M V1 doesn’t support ECC Brainpool, ECC NIST P 521
 curves and symmetric (AES).*
@@ -3971,7 +3960,7 @@ curves and symmetric (AES).*
 
 <span id="linkb2c75a89_e317_4cc5_b306_fd3bfb77ac65" class="anchor"></span>Table
 '[Key Usage Identifier](#linkb2c75a89_e317_4cc5_b306_fd3bfb77ac65)'
-lists the key usage identifier supported by the OPTIGA™.
+lists the key usage identifier supported by the OPTIGA™ Trust M.
 
 36. > Key Usage Identifier
 
@@ -3996,7 +3985,7 @@ coding.
 
 <span id="link7a2ff52b_867b_4d68_9401_2db0e0613de5" class="anchor"></span>Table
 '[Key Agreement Schemes](#link7a2ff52b_867b_4d68_9401_2db0e0613de5)'
-lists the key agreement schemes supported by the OPTIGA™.
+lists the key agreement schemes supported by the OPTIGA™ Trust M.
 
 38. > Key Agreement Schemes
 
@@ -4008,7 +3997,7 @@ lists the key agreement schemes supported by the OPTIGA™.
 
 Table '[Key Derivation
 Method](#linka34efe5c_be30_4917_b7ee_d40b6842cb90)' lists the key
-derivation method supported by the OPTIGA™.
+derivation method supported by the OPTIGA™ Trust M.
 
 *Note: OPTIGA™ Trust M V1 doesn’t support HKDF (SHA256/384/512) and PRF
 (SHA384/512).*
@@ -4026,7 +4015,7 @@ derivation method supported by the OPTIGA™.
 
 <span id="link3fff1f1f_80be_423f_8267_949de680e0b6" class="anchor"></span>Table
 '[Signature Schemes](#link3fff1f1f_80be_423f_8267_949de680e0b6)' lists
-the signature schemes supported by the OPTIGA™.
+the signature schemes supported by the OPTIGA™ Trust M.
 
 40. > Signature Schemes
 
@@ -4096,10 +4085,10 @@ in the below table.*
 performance metrics for various schemes are provided by Table '[Command
 Performance Metrics](#link80b161d0_bbce_43f8_83f0_4dd3c09fdee5)'.
 
-If not particular mentioned the performance is measured @ OPTIGA™ I/O
+If not particular mentioned the performance is measured @ OPTIGA™ Trust M I/O
 interface including data transmission with:
 
-  - I2C FM mode (400KHz)
+  - I2C FM mode (400kHz)
 
   - Without power limitation
 
@@ -4108,7 +4097,7 @@ interface including data transmission with:
   - VCC = 3.3V
 
 The performance of the commands, which use the secrets (e.g. private
-keys, shared secrets, etc.) at OPTIGA™ would get influenced by [Security
+keys, shared secrets, etc.) at OPTIGA™ Trust M would get influenced by [Security
 Monitor](#security-events) behavior.
 
 The values specified in the below table are without shielded connection.
@@ -4303,7 +4292,7 @@ Policy-Enforcement-Point and Policy-Attributes.
 
 ### Overview
 
-In order to define a project specific security set-up the OPTIGA™
+In order to define a project specific security set-up the OPTIGA™ Trust M
 provides a set of [Policy Attributes](#policy-attributes) and a [Policy
 Enforcement Point](#policy-enforcement-point). The [Policy Enforcement
 Point](#policy-enforcement-point) hosted by the key and data store,
@@ -4359,33 +4348,37 @@ enforcements.
 ## Security Monitor
 
 The Security Monitor is a central component, which enforces the security
-policy of the OPTIGA™. It consumes security events sent by security
-aware parts of the OPTIGA™ embedded SW and takes actions
-accordingly.
+policy of the OPTIGA™ Trust M. It processes internal security events sent by security
+aware parts of the OPTIGA™ Trust M embedded SW and takes actions
+accordingly as specified in security policy below.
 
 ### Security Events
 
 <span id="link85c2ab7b_fc5d_4ae0_90ad_6e830d4ed18a" class="anchor"></span>Table
 '[Security Events](#link85c2ab7b_fc5d_4ae0_90ad_6e830d4ed18a)' provides
 the definition of not permitted security events considered by the
-OPTIGA™ implementation.
+OPTIGA™ Trust M implementation.
 
 43. > Security Events
 
 | Name                    | Description                                                                                                                                                                                                                            |
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Decryption Failure      | The Decryption Failure event occurs in case a decryption and/ or integrity check of provided data lead to an integrity failure.                                                                                                        |
-| Key Derivation          | The Key Derivation event occurs in case an operation, which executes a key derivation gets applied on a persistent data object which contains a pre-shared secret.                                                                     |
-| Private Key Use         | The Private Key Use event occurs in case the internal services are going to use a OPTIGA™ hosted private key, except temporary keys from session context are used for key agreement like ECDH.                                         |
-| Secret Key Use          | The Secret Key Use event occurs in case the internal services are going to use a OPTIGA™ hosted secret (symmetric) key (once per respective command), except temporary keys from session context are used.                             |
-| Suspect System Behavior | The Suspect System Behavior event occurs in case the embedded software detects inconsistencies with the expected behavior of the system. Those inconsistencies might be redundant information, which doesn’t fit to their counterpart. |
+| Decryption Failure      | This event indicates a case of a decryption and/or integrity check of provided data
+leading to a failure during protected update                                                                                                        |
+| Key Derivation          | This event indicates a case of the DeriveKey command getting applied on a persistent
+data object (not volatile data object as session context). In that case the persistent
+data object gets used as pre-shared secret                                                                     |
+| Private Key Use         | This event indicates a case of internal services going to use an OPTIGA™ Trust M
+hosted private key, except temporary keys from the session context are used                                         |
+| Secret Key Use          | This event indicates a case of internal services are going to use a OPTIGA™ Trust M hosted secret (symmetric) key (once per respective command), except temporary keys from session context are used.                             |
+| Suspect System Behavior | This event indicates a case of the embedded software detecting inconsistencies with the expected behavior of the system. Those inconsistencies might be redundant information, which doesn’t fit to their counterpart. |
 
 ### Security Monitor Policy
 
-This paragraph provides all details of the policy chosen for the OPTIGA™
+This paragraph provides all details of the policy chosen for the OPTIGA™ Trust M
 project.
 
-In order to mitigate exhaustive testing of the OPTIGA™ private keys,
+In order to mitigate exhaustive testing of the OPTIGA™ Trust M private keys,
 secret keys and shared secrets, and to limit the possible number of
 failure attacks targeting disclosure of those assets, the Security
 Monitor judges the notified security events regarding the number of
@@ -4538,22 +4531,22 @@ Figure 29 - Power profile
 
 Figure "*Power Profile*" depicts the power profile of a regular startup
 sequence, caused either by PowerUP, Warm Reset, or Security Reset. The
-OPTIGA™ starts up with its maximum power consumption limit set by the
+OPTIGA™ Trust M starts up with its maximum power consumption limit set by the
 Current limitation data object (refer to Table [Common data
 structures](#link24b48059_db81_40f5_8b65_7afca4918ab1)). As soon as the
-OPTIGA™ enters idle state (nothing to compute or communicate) the
-OPTIGA™ reduces its power consumption to the low power limit (ref for
+OPTIGA™ Trust M enters idle state (nothing to compute or communicate) the
+OPTIGA™ Trust M reduces its power consumption to the low power limit (ref for
 details to “System Halt Power Consumption” in [\[Data Sheet
 M\]](#linkd7d14db5_70f4_4f45_8b27_cdf8ac293321)). In case a time period
 of t<sub>max</sub> is elapsed the SEC gets decremented by one. As soon
 as the SEC reaches the value of 0, the SEC<sub>CREDIT</sub> counter
-reaches its maximum value, and the OPTIGA™ is in idle state, the OPTIGA™
+reaches its maximum value, and the OPTIGA™ Trust M is in idle state, the OPTIGA™ Trust M
 enters the sleep mode to achieve maximum power saving. It is recommended
 not to switch off the power before the SEC becomes 0. In order to avoid
 power consumption at all, VCC could be switched off while keeping the
 I2C bus connected. However, before doing that the SEC value should have
 reached 0, to avoid accumulated SEC values which might lead to
-throttling down the OPTIGA™ performance (ref to Figure "*Throttling down
+throttling down the OPTIGA™ Trust M performance (ref to Figure "*Throttling down
 profile*") for functionalities which potentially triggering [Security
 Events](#security-events). However, the method of switching VCC off and
 on is limited to 200.000 times over lifetime.
@@ -4641,7 +4634,7 @@ The following list provides the cases when a
   - One hibernate cycle causes five tearing-safe-programming-cycles
 
 The figure "Overview Data and Key Store" below provides an overview of
-all data and key objects hosted by the OPTIGA™ and the recommended
+all data and key objects hosted by the OPTIGA™ Trust M and the recommended
 maximum cycling (color coding) per object. In case those recommendations
 are meet and for higher cycled data objects the homogeneous distributed
 of applied programming cycles across lifetime are respected, the data
@@ -4757,7 +4750,7 @@ expression](#metadata-expression)).
   - A **Simple AC (sAC)** expression consists just of an access type tag
     (e.g. read, change, increment, decrement, delete), the length of the
     condition, and a single condition (e.g. ALW, NEV, LcsO \< 0x04 …)
-    which must be satisfied to grand access for that access type.
+    which must be satisfied to grant access for that access type.
 
   - A **Complex AC (cAC)** expression consists of multiple simple
     expressions combined by && and/or || operators. Where …  
@@ -4783,14 +4776,14 @@ the evaluation of a complex expression from the beginning or the end.*
 accordingly.*
 
 <span id="linkc15dfea4_2cc2_46ae_a53b_1e6ea9487f34" class="anchor"></span>The
-access conditions which could be associated to OPTIGA™ data and key
+access conditions which could be associated to OPTIGA™ Trust M data and key
 objects are defined by Table '[Access Condition Identifier and
 Operators](#linkc15dfea4_2cc2_46ae_a53b_1e6ea9487f34)'.
 
 Note: OPTIGA™ Trust M V1 doesn’t support SecStaG(X), SecStaG(X), and
 Auto (X) Identifiers.
 
-44. > Access Condition Identifier and Operators
+1.  > Access Condition Identifier and Operators
 
 <table>
 <thead>
@@ -4838,7 +4831,7 @@ Auto (X) Identifiers.
 <li><p>Execute, Conf, Binding Secret (e.g. 0xD3, 0x03, 0x20, 0xE1, 0x40)</p></li>
 </ul>
 <blockquote>
-<p>In case of using a data object with an internal operation (e.g. using <a href="#derivekey">DeriveKey</a> from a pre-shared secret), the shielded connection must be established already using the specified binding secret (0xE140) and the command is sent protection (encrypted).</p>
+<p>In case of using a data object with an internal operation (e.g. using <a href="#derivekey">DeriveKey</a> from a pre-shared secret), the shielded connection must be established already using the specified binding secret (0xE140) and the command is sent with protection (encrypted).</p>
 </blockquote>
 <ul>
 <li><p>Change, Conf, Protected Update Secret → (e.g. 0xD0, 0x03, 0x20, 0xF1, 0xD0)</p></li>
@@ -4969,7 +4962,7 @@ Auto (X) Identifiers.
 
 <span id="linkaf9aa284_1397_4161_8761_8c44fbbfa69d" class="anchor"></span>Table
 '[Data Object Types](#linkaf9aa284_1397_4161_8761_8c44fbbfa69d)' lists
-the various types of data objects supported by OPTIGA™.
+the various types of data objects supported by OPTIGA™ Trust M.
 
 45. > Data Object
 Types
@@ -4981,7 +4974,7 @@ Types
 | TA       | 0x11  | The Trust Anchor data type contains a single X.509 certificate which could be used in various commands requiring a root of trust.                                                                                                                                 |
 | DEVCERT  | 0x12  | The Device Identity data type contains a single X.509 certificate or a chain of certificates (TLS, USB-Type C, ...) which was issued to vouch for the cryptographic identity of the end-device.                                                                   |
 | PRESSEC  | 0x21  | The Pre-shared Secret contains a binary data string which makes up a pre-shared secret for various purposes (FW-decryption, ...).                                                                                                                                 |
-| PTFBIND  | 0x22  | The Platform Binding contains a binary data string which makes up a pre-shared secret for platform binding (e.g. used for OPTIGA™ Shielded Connection).                                                                                                           |
+| PTFBIND  | 0x22  | The Platform Binding contains a binary data string which makes up a pre-shared secret for platform binding (e.g. used for OPTIGA™ Trust M Shielded Connection).                                                                                                           |
 | UPDATSEC | 0x23  | The Protected Update Secret contains a binary data string which makes up a pre-shared secret for confidentiality protected update of data or key objects. The maximum length is limited to 64 bytes, even if the hosting data object has a higher maximum length. |
 | AUTOREF  | 0x31  | The Authorization Reference contains a binary data string which makes up a reference value for verifying an external entity (admin, user, etc.) authorization.                                                                                                    |
 
@@ -4991,7 +4984,7 @@ Note: OPTIGA™ Trust M V1 doesn’t support UPDATSEC and AUTOREF types.
 
 The device, the application, and key and data objects have a life cycle
 state associated; the life cycle status (LCS) allows to identify the
-different states of the associated logical units throughout the OPTIGA™
+different states of the associated logical units throughout the OPTIGA™ Trust M
 lifetime. To support flexible management of the life cycle, four primary
 states (Bit 2<sup>3</sup> - 2<sup>0</sup>) are defined in the following
 order:
@@ -5019,7 +5012,7 @@ Status](#link05d4c12a_5c94_4a05_a05d_102c53684d3d)'.
 <span id="linkef83484d_6e78_4153_8941_0ab88a272734" class="anchor"></span>Table
 '[Common data objects with TAG’s and
 AC‘s](#linkef83484d_6e78_4153_8941_0ab88a272734)' lists all common
-data structures defined for the OPTIGA™ with its TAG’s and AC’s.
+data structures defined for the OPTIGA™ Trust M with its TAG’s and AC’s.
 
 46. > Common data objects with TAG’s and AC‘s
 
@@ -5056,7 +5049,7 @@ data structures defined for the OPTIGA™ with its TAG’s and AC’s.
 </tr>
 <tr class="odd">
 <td>0xE0C2</td>
-<td><a href="#linkd03deed7_76d5_4480_8236_b3cdd1f08e94">Coprocessor UID OPTIGA™ Trust Family</a></td>
+<td><a href="#linkd03deed7_76d5_4480_8236_b3cdd1f08e94">Coprocessor UID OPTIGA™ Trust M Family</a></td>
 <td></td>
 <td>NEV</td>
 <td>NEV</td>
@@ -5170,7 +5163,7 @@ data structures defined for the OPTIGA™ with its TAG’s and AC’s.
 <td>ALW</td>
 <td>LcsO &lt; op || Conf (0xE140)</td>
 <td>LcsO &lt; op</td>
-<td>default LcsO = cr; This data object holds the shared secret for the OPTIGA™ Shielded Connection technology, which establishes a cryptographic binding between the OPTIGA™ and the Host.</td>
+<td>default LcsO = cr; This data object holds the shared secret for the OPTIGA™ Trust M Shielded Connection technology, which establishes a cryptographic binding between the OPTIGA™ Trust M and the Host.</td>
 </tr>
 </tbody>
 </table>
@@ -5178,7 +5171,7 @@ data structures defined for the OPTIGA™ with its TAG’s and AC’s.
 <span id="linkf056a0f7_a31f_41c3_b1d9_f270a4fe0378" class="anchor"></span>Table
 '[Common key objects with TAG’s and
 AC‘s](#linkf056a0f7_a31f_41c3_b1d9_f270a4fe0378)' lists all common
-Keys defined for the OPTIGA™ with its TAG’s and AC’s.
+Keys defined for the OPTIGA™ Trust M with its TAG’s and AC’s.
 
 47. > Common key objects with TAG’s and AC‘s
 
@@ -5242,7 +5235,7 @@ Keys defined for the OPTIGA™ with its TAG’s and AC’s.
 
 Table '[Authentication application-specific data objects with TAG’s and
 AC‘s](#link18bf8313_ea6e_4d75_a125_f9611e98a28d)' lists all data
-structures defined for the OPTIGA™ Authentication Application with its
+structures defined for the OPTIGA™ Trust M Authentication Application with its
 TAGs and ACs.
 
 48. > Authentication application-specific data objects with TAG’s and
@@ -5288,7 +5281,7 @@ object.*
 <span id="link8051b344_ff66_4d6b_bcfd_d21bb87d05d4" class="anchor"></span>Table
 '[Metadata associated with data and key
 objects](#link8051b344_ff66_4d6b_bcfd_d21bb87d05d4)' lists all common
-data structures defined for the OPTIGA™ with its TAG’s and AC’s.
+data structures defined for the OPTIGA™ Trust M with its TAG’s and AC’s.
 
 49. > Metadata associated with data and key objects
 
@@ -5421,7 +5414,7 @@ data structures defined for the OPTIGA™ with its TAG’s and AC’s.
 <span id="linka946a953_def2_41cf_850a_74fb7899fe11" class="anchor"></span>Table
 '[Metadata Update
 Identifier](#linka946a953_def2_41cf_850a_74fb7899fe11)' lists the
-metadata update identifier supported by the OPTIGA™. The identifier
+metadata update identifier supported by the OPTIGA™ Trust M. The identifier
 could be combined by ORing them (e.g. 0x11 =\> LcsO = cr & flush object
 with zero). However, the bits in the upper nibble are not allowed being
 combined. In case of protected metadata update the new LcsO gets
@@ -5506,7 +5499,7 @@ hex*
 
 <span id="link24b48059_db81_40f5_8b65_7afca4918ab1" class="anchor"></span>Table
 '[Common data structures](#link24b48059_db81_40f5_8b65_7afca4918ab1)'
-lists all common data structures defined for the OPTIGA™.
+lists all common data structures defined for the OPTIGA™ Trust M.
 
 51. > Common data structures
 
@@ -5521,10 +5514,10 @@ lists all common data structures defined for the OPTIGA™.
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="#linkd03deed7_76d5_4480_8236_b3cdd1f08e94">Coprocessor UID OPTIGA™ Trust Family</a></td>
+<td><a href="#linkd03deed7_76d5_4480_8236_b3cdd1f08e94">Coprocessor UID OPTIGA™ Trust M Family</a></td>
 <td></td>
 <td>27</td>
-<td>Unique ID of the OPTIGA™.</td>
+<td>Unique ID of the OPTIGA™ Trust M.</td>
 </tr>
 <tr class="even">
 <td>Life Cycle State (refer to Table '<a href="#link05d4c12a_5c94_4a05_a05d_102c53684d3d"><em>Life Cycle Status</em></a>')</td>
@@ -5554,7 +5547,7 @@ lists all common data structures defined for the OPTIGA™.
 <td>Current limitation in mA</td>
 <td>BinaryNumber8</td>
 <td>1</td>
-<td><p>The Current limitation holds the maximum value of current allowed to be consumed by the OPTIGA™ across all operating conditions. The allowed values are 6-15 (mA). This register resides in Non-Volatile Memory (NVM) and will be restored upon power up or reset. Its default content is 6mA.</p>
+<td><p>The Current limitation holds the maximum value of current allowed to be consumed by the OPTIGA™ Trust M across all operating conditions. The allowed values are 6-15 (mA). This register resides in Non-Volatile Memory (NVM) and will be restored upon power up or reset. Its default content is 6mA.</p>
 <p><strong>Note:</strong> <em>15mA will cause best case performance. 9 mA will cause roughly 60% of the best case performance.</em> Even the maximum communication speed might be degraded by Current limitation (How the max. possible communication speed gets indicated to the I2C master, please refer to <a href="#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4">[IFX_I2C]</a>).</p></td>
 </tr>
 <tr class="odd">
@@ -5574,7 +5567,7 @@ lists all common data structures defined for the OPTIGA™.
 <td>Public Key Certificate</td>
 <td>x.509</td>
 <td>1728 (max.)</td>
-<td><p>The Public Key Certificate data object holds one or multiple of X.509 Certificate (refer to <a href="#link361825e0_14e3_4707_afbb_202d64985d2a">[RFC5280]</a>). The certificate was issued by IFX or a Customer. An external Entity (host, server) utilizes it as device identity to authenticate the OPTIGA™ within the regarded PKI domain (IFX or Customer).</p>
+<td><p>The Public Key Certificate data object holds one or multiple of X.509 Certificate (refer to <a href="#link361825e0_14e3_4707_afbb_202d64985d2a">[RFC5280]</a>). The certificate was issued by IFX or a Customer. An external Entity (host, server) utilizes it as device identity to authenticate the OPTIGA™ Trust M within the regarded PKI domain (IFX or Customer).</p>
 <p>Tags to differentiate the Public Key certificate chain format:</p>
 <ul>
 <li><p><strong>Single X.509 certificate:</strong><br />
@@ -5600,7 +5593,7 @@ The first byte of the DER encoded certificate is <strong>0x30</strong> and is <s
 <td>Platform Binding Secret</td>
 <td>BinaryNumber8</td>
 <td>64</td>
-<td>The Platform Binding Secret data object holds the shared secret used during the handshake key agreement as part of the OPTIGA™ Shielded Connection protocol. It shall be 64 bytes and LcsO set to operational (op) and access condition set to CHA = NEV and RD = NEV.</td>
+<td>The Platform Binding Secret data object holds the shared secret used during the handshake key agreement as part of the OPTIGA™ Trust M Shielded Connection protocol. It shall be 64 bytes and LcsO set to operational (op) and access condition set to CHA = NEV and RD = NEV.</td>
 </tr>
 <tr class="even">
 <td>Counter</td>
@@ -5613,7 +5606,7 @@ The first byte of the DER encoded certificate is <strong>0x30</strong> and is <s
 
 <span id="link05d4c12a_5c94_4a05_a05d_102c53684d3d" class="anchor"></span>Table
 '[Life Cycle Status](#link05d4c12a_5c94_4a05_a05d_102c53684d3d)' lists
-all coding of the Life Cycle Status defined for the OPTIGA™.
+all coding of the Life Cycle Status defined for the OPTIGA™ Trust M.
 
 52. > Life Cycle Status
 
@@ -5639,11 +5632,11 @@ after [OpenApplication](#openapplication) for the application-specific
 | ------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | x x     | \_ x x x x x | The [*Security Status*](#link39ce19b0_b776_48c9_a896_bb241accb588) flag Boot is set=1 by default after reset for both global and application specific. As soon as the boot phase specific permissions should be terminated the boot flag could be reset by writing 0b1101 1111 to the regarded [*Security Status*](#link39ce19b0_b776_48c9_a896_bb241accb588). |
 
-Table '[Coprocessor UID OPTIGA™ Trust
+Table '[Coprocessor UID OPTIGA™ Trust M 
 Family](#linkd03deed7_76d5_4480_8236_b3cdd1f08e94)' shows UID definition
-for the OPTIGA™.
+for the OPTIGA™ Trust M.
 
-54. > Coprocessor UID OPTIGA™ Trust
+54. > Coprocessor UID OPTIGA™ Trust M 
 Family
 
 | Offset | Data Type | Name                 | Description                          |
@@ -5718,7 +5711,7 @@ possible configurations w.r.t. Security Monitor.
 <span id="linkf65a36fd_978a_4bff_9c93_a782e1359574" class="anchor"></span>Table
 '[Data Structure Unique Application
 Identifier](#linkf65a36fd_978a_4bff_9c93_a782e1359574)' shows unique
-identifier for the OPTIGA™ application which gets used with the
+identifier for the OPTIGA™ Trust M application which gets used with the
 [OpenApplication](#openapplication) command.
 
 56. > Data Structure Unique Application
@@ -6265,7 +6258,7 @@ misuse the services provided or consumed by the nodes.
 ### Use Case: Host Firmware Update -toolbox-
 
 The shared secret size shall be at least 32 bytes to render a brute
-force useless.
+force impractical.
 
 Firmware update Shared secret, which is stored in one of data objects
 could be modified and read out by an attacker. By reading the global
@@ -6370,7 +6363,7 @@ conditions.
 
   - EXE access condition tied with Platform Binding shared secret (CONF
     E140), enforces the shielded connection for the usage of pre-shared
-    secret in OPTIGA™ during the respective critical operations (e.g.
+    secret in OPTIGA™ Trust M during the respective critical operations (e.g.
     key derivation or MAC generation) which doesn’t allow the usage with
     unknown Hosts.
 
@@ -6380,7 +6373,7 @@ conditions.
     usage of shared secret further for the required number of times
   
   - Without the use of an Integrity and Confidentiality Protected Update, 
-    OPTIGA™ cannot support use cases based on PRESSEC that require more 
+    OPTIGA™ Trust M cannot support use cases based on PRESSEC that require more 
     restrictive access rights for READ than for CHANGE
 
 
@@ -6407,7 +6400,7 @@ conditions.
 
 > \- Update the Platform Binding secret and followed by re-establishing
 > the shielded connection, can also be used by host to validate (to
-> ensure freshness in shielded connection session) when required. But
+> provide freshness in shielded connection session) when required. But
 > this procedure would lead to NVM write operations (e.g. writing to
 > platform binding secret data object, security events due to the usage
 > of shared secrets in performing the shielded connection). Hence the
@@ -6419,7 +6412,7 @@ conditions.
 > \- To enforce this, the write access conditions for the Platform
 > binding data object must be set accordingly.
 
-  - Secure binding (using the Platform binding shared secret) and usage
+  - Secured binding (using the Platform binding shared secret) and usage
     restriction using the Monotonic counters enables additional usage
     restriction for the critical asset (e.g. RSA keys, AES keys and
     shared secrets) if assets are not intended to use extremely.
@@ -6429,8 +6422,8 @@ conditions.
     command-based operations, which enforces the usage of session
     context.
 
-  - Host can validate OPTIGA™ using the sequence specified in section
-    6.6.3 Host authenticates OPTIGA™ to ensure the freshness.
+  - Host can validate OPTIGA™ Trust M using the sequence specified in section
+    6.6.3 Host authenticates OPTIGA™ Trust M to provide freshness.
 
 ### Algorithm usage
 
@@ -6438,44 +6431,44 @@ conditions.
 
 ## Shielded Connection V1 Guidance
 
-The OPTIGA™ Shielded Connection enables a protected (Integrity and
-Confidentiality) communication between the OPTIGA™ and a corresponding
+The OPTIGA™ Trust M Shielded Connection enables a protected (Integrity and
+Confidentiality) communication between the OPTIGA™ Trust M and a corresponding
 Host platform as depicted in figure below.
 
 |                                  |
 | -------------------------------- |
 | ![](https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M/SRM/image40.png) |
 
-Figure 37 - Overview OPTIGA™ Shielded Connection
+Figure 37 - Overview OPTIGA™ Trust M Shielded Connection
 
 This section provides information regarding the set up and usage of
 Shielded Connection in the target device application.
 
-The OPTIGA™ supports the Shielded Connection using a pre-shared secret
-(Platform Binding Secret) between the OPTIGA™ and a corresponding host
+The OPTIGA™ Trust M supports the Shielded Connection using a pre-shared secret
+(Platform Binding Secret) between the OPTIGA™ Trust M and a corresponding host
 platform. [\[IFX\_I2C\]](#linkdc0f79b5_99c7_4adf_93f5_635fd8a124f4)
 explains internal details of establishing the shielded connection; e.g.,
 negotiation and crypto algorithms used for the protection in the section
 Presentation Layer.
 
 6.  The Shielded connection doesn’t provide an option to add random
-    challenge/nonce from host to ensure the freshness of established
+    challenge/nonce from host to provide freshness of established
     shielded connection. This can be achieved with few more additional
-    steps as described in Host authenticates OPTIGA™.
+    steps as described in Host authenticates OPTIGA™ Trust M.
 
 ### Setup
 
 Preconditions to establish the Shielded Connection is to pair the
-OPTIGA™ with a host. The pre-shared secret is established during first
-boot/initialization sequence. The [Use Case: Pair OPTIGA™ with Host
+OPTIGA™ Trust M with a host. The pre-shared secret is established during first
+boot/initialization sequence. The [Use Case: Pair OPTIGA™ Trust M with Host
 (Pre-Shared Secret
 based)](#use-case-pair-optiga-with-host-pre-shared-secret-based) depicts
 the pairing process.
 
 The pal\_os\_datastore\_read and pal\_os\_datastore\_write are the
 abstracted APIs for reading and writing the platform binding secret at
-host platform. These APIs are to be adapted to the particular host
-platform needs.
+host platform. These APIs are to be adapted to suit the needs of the particular host
+platform.
 
 During the Shielded Connection establishment, the
 optiga\_comms\_ifx\_i2c module invokes
@@ -6484,13 +6477,13 @@ function.
 
 ### Usage
 
-In the OPTIGA™ Host Library, the Shielded Connection feature can be
+In the OPTIGA™ Trust M Host Library, the Shielded Connection feature can be
 enabled/disabled using the macro (OPTIGA\_COMMS\_SHIELDED\_CONNECTION in
 optiga\_lib\_config.h) with the required default protection level
 (OPTIGA\_COMMS\_DEFAULT\_PROTECTION\_LEVEL in optiga\_lib\_config.h).
 
 For the protected communication (Shielded Connection) between a host and
-the OPTIGA™, an instance of [optiga\_util](#optiga_util) or
+the OPTIGA™ Trust M, an instance of [optiga\_util](#optiga_util) or
 [optiga\_crypt](#optiga_crypt) needs to be updated with the required
 protection level before invoking the operations provided by
 [optiga\_util](#optiga_util) or [optiga\_crypt](#optiga_crypt) using
@@ -6499,7 +6492,7 @@ OPTIGA\_CRYPT\_SET\_COMMS\_PROTECTION\_LEVEL respectively.
 
 For example, to enable a full: i.e. command and response, protection for
 deriving the decryption keys in FW update use case using the pre-shared
-secret from OPTIGA™
+secret from OPTIGA™ Trust M
 
   - Invoke OPTIGA\_CRYPT\_SET\_COMMS\_PROTECTION\_LEVEL (me\_crypt,
     OPTIGA\_COMMS\_FULL\_PROTECTION)
@@ -6523,7 +6516,7 @@ response protection for the data object read data operation
     (me\_util, oid, …)
 
 Based on the above settings, the access layer activates the Shielded
-Connection between a host and the OPTIGA™. These settings reset
+Connection between a host and the OPTIGA™ Trust M. These settings reset
 automatically to the default protection level; i.e.
 OPTIGA\_COMMS\_DEFAULT\_PROTECTION\_LEVEL once after the operation is
 invoked.
@@ -6534,37 +6527,37 @@ based)](#use-case-update-platform-binding-secret-during-runtime-pre-shared-secre
 depicts a process of updating the platform binding secret periodically
 using the shielded connection at runtime.
 
-### Host authenticates OPTIGA™
+### Host authenticates OPTIGA™ Trust M
 
 After shielded connection established, if host intends to
-validate/authenticate OPTIGA™ (random challenge driven by Host) or to
-ensure the freshness in the established shielded connection, one of the
+validate/authenticate OPTIGA™ Trust M (random challenge driven by Host) or to
+provide freshness in the established shielded connection, one of the
 below specified mechanisms can be performed by local\_host\_application.
 This must be performed once (at least), after the shielded connection is
 established and/or whenever required.
 
 #### Write and read nonce to/from a data object
 
-The local\_host\_application writes generated nonce to OPTIGA™ and reads
-the same data object to authenticate OPTIGA™ and to ensure the freshness
+The local\_host\_application writes generated nonce to OPTIGA™ Trust M and reads
+the same data object to authenticate OPTIGA™ Trust M and to provide freshness
 (at host side) in shielded connection.
 
-7.  The write operation shown below leads to writing to NVM at OPTIGA™.
+7.  The write operation shown below leads to writing to NVM at OPTIGA™ Trust M.
     Hence the endurance of the data object and overall endurance as
     specified in Overview Data and Key Store must be considered
     accordingly.
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched and the shielded
-    connection between host and OPTIGA™ is established
+  - The OPTIGA™ Trust M application is already launched and the shielded
+    connection between host and OPTIGA™ Trust M is established
 
   - The optiga\_util APIs shown in below diagram must be invoked with
     command and response protection using shielded connection.
 
 **Post-condition:**
 
-  - The local\_host\_application considers the OPTIGA™ as an authentic
+  - The local\_host\_application considers the OPTIGA™ Trust M as an authentic
     member of the target platform.
 
 |                                  |
@@ -6576,8 +6569,8 @@ Figure 38 - Write and read nonce to/from a data object
 #### Derive keys using nonce during run time 
 
 The local\_host\_application establishes session with intermediate
-secrets at OPTIGA™ using respective operations. And host further uses
-this intermediate secret in session to ensure the freshness (at host
+secrets at OPTIGA™ Trust M using respective operations. And host further uses
+this intermediate secret in session to provide freshness (at host
 side) in shielded connection.
 
 8.  With this way, there are no additional NVM writes during the
@@ -6585,15 +6578,15 @@ side) in shielded connection.
 
 **Pre-condition:**
 
-  - The OPTIGA™ application is already launched and the shielded
-    connection between host and OPTIGA™ is established.
+  - The OPTIGA™ Trust M application is already launched and the shielded
+    connection between host and OPTIGA™ Trust M is established.
 
   - The optiga\_crypt APIs shown in the below diagram must be invoked
     with command and response protection using shielded connection.
 
 **Post-condition:**
 
-  - The local\_host\_application considers the OPTIGA™ as an authentic
+  - The local\_host\_application considers the OPTIGA™ Trust M as an authentic
     member of the target platform.
 
 |                                  |
@@ -6606,33 +6599,33 @@ Figure 39 - Derive keys using nonce during run time
 
 The local\_host\_application uses additional pre-shared secret (stored
 at both sides in NVM) which is already exchanged by
-local\_host\_application and OPTIGA™. The local\_host\_application
+local\_host\_application and OPTIGA™ Trust M. The local\_host\_application
 generates a secret nonce and followed by key derivation using respective
-operations and uses the same to authenticate OPTIGA™ and to ensure the
+operations and uses the same to authenticate OPTIGA™ Trust M and to provide
 freshness (at host side) in shielded connection.
 
 9.  The key derivation using static shared secret (from a data object)
-    leads to a security event at OPTIGA™, which leads to NVM write
-    operations (if SEC<sub>CREDIT</sub> = 0) at OPTIGA™. Hence the
+    leads to a security event at OPTIGA™ Trust M, which leads to NVM write
+    operations (if SEC<sub>CREDIT</sub> = 0) at OPTIGA™ Trust M. Hence the
     endurance of the SEC data object and overall endurance as specified
     in section Overview Data and Key Store must be considered
     accordingly.
 
 **Pre-condition:**
 
-  - The local\_host\_application and OPTIGA™ holds an additional static
+  - The local\_host\_application and OPTIGA™ Trust M holds an additional static
     pre-shared secret and the access conditions (e.g. read disabled) of
-    pre-shared secret at OPTIGA™ are set accordingly.
+    pre-shared secret at OPTIGA™ Trust M are set accordingly.
 
-  - The OPTIGA™ application is already launched and the shielded
-    connection between host and OPTIGA™ is established.
+  - The OPTIGA™ Trust M application is already launched and the shielded
+    connection between host and OPTIGA™ Trust M is established.
 
   - The optiga\_crypt APIs shown in the below diagram must be invoked
     with command and response protection using shielded connection.
 
 **Post-condition:**
 
-  - The local\_host\_application considers the OPTIGA™ as an authentic
+  - The local\_host\_application considers the OPTIGA™ Trust M as an authentic
     member of the target platform.
 
 |                                  |
@@ -6646,7 +6639,7 @@ secret
 
 This section provides the definition and some useful information of
 update data sets for data and key objects which are used to update those
-in a secure/protected way.
+in a protected way.
 
 The figure below shows the high level structure of the update data set
 for data or key objects. It consists of a manifest and the connected
@@ -6665,13 +6658,13 @@ manifest and signature structures are provided in the package.
 
 The **Manifest** is a top level construct that ties all other structures
 together and is signed by an authorized entity whose identity is
-represented by a trust anchor installed at the OPTIGA™. The trust anchor
+represented by a trust anchor installed at the OPTIGA™ Trust M. The trust anchor
 is addressed by its unique ID (OID), which is contained in the metadata
 of the manifest. Manifest consists of the metadata in plain text, the
 payload binding and the signature over metadata and payload binding.
 
 The **Metadata** provide information enabling interpretation and manage
-the update data set by the OPTIGA™. It contains:
+the update data set by the OPTIGA™ Trust M. It contains:
 
   - Version number
 
@@ -6699,11 +6692,11 @@ of object data, except the last block, carries the hash value of the
 next block of object data.
 
 The **Confidentiality Protection** is based on a shared secret installed
-at OPTIGA™, and additional data used to derive the object data
+at OPTIGA™ Trust M, and additional data used to derive the object data
 decryption key. The session key gets applied as soon as the integrity of
 the current block of the object data is successfully verified.
 
-10. OPTIGA™ Trust M V1 doesn’t support confidentiality protection and
+1.  OPTIGA™ Trust M V1 doesn’t support confidentiality protection and
     update of keys & metadata.
 
 ### Payload Confidentiality
@@ -6807,11 +6800,11 @@ Here Length = 0x120, this will be represented as “01 20”.
   - The private key and public key are provided as part of payload with
     the respective tag.
     
-      - If the target OPTIGA™ doesn’t store the public key, then the
-        public key is optional. If provided, the target OPTIGA™ ignores
+      - If the target OPTIGA™ Trust M doesn’t store the public key, then the
+        public key is optional. If provided, the target OPTIGA™ Trust M ignores
         the provided public key.
     
-      - If the target OPTIGA™ stores the public key, then the public key
+      - If the target OPTIGA™ Trust M stores the public key, then the public key
         is must.
 
   - As part of the payload, the length of the key is based on curve type
@@ -6899,7 +6892,7 @@ hex format\].
 
 ### Metadata update
 
-  - The payload contains the metadata to be updated in target OPTIGA™
+  - The payload contains the metadata to be updated in target OPTIGA™ Trust M
     OID metadata.
 
 The following metadata tags must not be part of payload.
@@ -6922,29 +6915,29 @@ The following metadata tags must not be part of payload.
 0xD1, 0x01, 0x00, // TLV Read = ALW  
 0xD0, 0x03, 0xE1, 0xFC, 0x07 // TLV Change = LcsO \< op
 
-  - At OPTIGA™,
+  - At OPTIGA™ Trust M,
     
       - The reset type (F0) tag must be available in metadata of the
-        Target OPTIGA™ OID to be updated and the metadata update
+        Target OPTIGA™ Trust M OID to be updated and the metadata update
         descriptor are verified whether to allow the protected update or
         not.
     
       - If the new metadata (in payload) contains the LcsO tag, then the
-        LcsO in the target OPTIGA™ OID metadata gets with this value and
+        LcsO in the target OPTIGA™ Trust M OID metadata gets with this value and
         the LcsO value specified in the metadata update Identifier is
         ignored.
     
       - If the new metadata (in payload) does not contain the LcsO tag,
-        then the LcsO in the target OPTIGA™ OID current metadata gets
+        then the LcsO in the target OPTIGA™ Trust M OID current metadata gets
         updated with the value specified in the metadata update
         Identifier of the current metadata.
     
       - The payload version specified in the manifest gets updated in
-        the target OPTIGA™ OID metadata.
+        the target OPTIGA™ Trust M OID metadata.
     
       - The tags which are specified in the new metadata (in payload),
-        gets replaced in the target OPTIGA™ OID metadata and the
-        remaining tags in target OPTIGA™ OID metadata still remain
+        gets replaced in the target OPTIGA™ Trust M OID metadata and the
+        remaining tags in target OPTIGA™ Trust M OID metadata still remain
         unchanged.
     
       - If the new metadata (in payload) does not contain any tags (e.g.
@@ -6973,7 +6966,7 @@ and **Analysts**, who use the Glossary to capture project-specific
 terms, and to ensure that all kind of specifications make correct and
 consistent use of those terms**.**
 
-58. > Terms of OPTIGA™
+58. > Terms of OPTIGA™ Trust M
 Vocabulary
 
 | Term                                                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Abbreviation |
@@ -6988,11 +6981,11 @@ Vocabulary
 | <span id="link5ca4a3be_96d9_4e5e_861a_778fc622be89" class="anchor"></span>hot spot               | in [*Non-Volatile Memory*](#linkf23fe06b_85e9_479f_b23c_23070afba80f) technologies a [*hot spot*](#link5ca4a3be_96d9_4e5e_861a_778fc622be89) is a very often written data object                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |              |
 | <span id="link8ee01330_a1ee_4ed9_9e44_6be8ef136fc4" class="anchor"></span>latency                | In Real-Time concepts [*latency*](#link8ee01330_a1ee_4ed9_9e44_6be8ef136fc4) is a time interval between the stimulation (interrupt, event ...) and response, or, from a more general point of view, as a time delay between the cause and the effect of some physical change in the system being observed.                                                                                                                                                                                                                                                                                                                                                                                        |              |
 | <span id="link210b6d30_fc53_4197_bfae_2d816ad8debf" class="anchor"></span>Microcontroller        | [*Microcontroller*](#link210b6d30_fc53_4197_bfae_2d816ad8debf) is a small computer on a single integrated circuit containing a processor core, memory, and programmable input/output peripherals.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | µC / MCU     |
-| <span id="linkf23fe06b_85e9_479f_b23c_23070afba80f" class="anchor"></span>Non-Volatile Memory    | [Non-Volatile Memory](#linkf23fe06b_85e9_479f_b23c_23070afba80f), NVM or non-volatile storage is a [computer data storage](#linkf96a6d79_ee97_4370_9adf_73f99452f311) that can get back stored information even when not powered. Examples of non-volatile memory include read-only memory (ROM), electrical erasable programmable read-only memory (EEPROM), **flash memory** (the most popular for [Secure Microcontroller](#link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b)), ferroelectric RAM (F-RAM), most types of magnetic computer storage devices (e.g. hard disks , floppy disks, and magnetic tape, optical discs, and early computer storage methods such as paper tape and punched cards. | NVM          |
+| <span id="linkf23fe06b_85e9_479f_b23c_23070afba80f" class="anchor"></span>Non-Volatile Memory    | [Non-Volatile Memory](#linkf23fe06b_85e9_479f_b23c_23070afba80f), NVM or non-volatile storage is a [computer data storage](#linkf96a6d79_ee97_4370_9adf_73f99452f311) that can get back stored information even when not powered. Examples of non-volatile memory include read-only memory (ROM), electrical erasable programmable read-only memory (EEPROM), **flash memory** (the most popular for [Secured Microcontroller](#link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b)), ferroelectric RAM (F-RAM), most types of magnetic computer storage devices (e.g. hard disks , floppy disks, and magnetic tape, optical discs, and early computer storage methods such as paper tape and punched cards. | NVM          |
 | <span id="linke8489f04_8c0d_45d5_a68b_d9d319f476cf" class="anchor"></span>object                 | in object oriented programming an [*object*](#linke8489f04_8c0d_45d5_a68b_d9d319f476cf) is an instance of a [*Class*](#link876c172e_2c4e_4478_a1ec_fb3f8dbc2b57).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |              |
 | <span id="link699a7f84_99ae_4f3c_b131_fe8ca5f2a23b" class="anchor"></span>programming NVM        | [*programming NVM*](#link699a7f84_99ae_4f3c_b131_fe8ca5f2a23b) comprises of erase followed by write to the [*Non-Volatile Memory*](#linkf23fe06b_85e9_479f_b23c_23070afba80f)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |              |
 | <span id="link6a0d50de_a929_4c32_8023_a26b692af513" class="anchor"></span>Random-Access Memory   | [*Random-Access Memory*](#link6a0d50de_a929_4c32_8023_a26b692af513) is a form of a [*computer data storage*](#linkf96a6d79_ee97_4370_9adf_73f99452f311). A [*Random-Access Memory*](#link6a0d50de_a929_4c32_8023_a26b692af513) device allows data items to be read and written in roughly the same amount of time regardless of the order in which data items are accessed.                                                                                                                                                                                                                                                                                                                       | RAM          |
-| <span id="link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b" class="anchor"></span>Secure Microcontroller | [*Secure Microcontroller*](#link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b) is a [*Microcontroller*](#link210b6d30_fc53_4197_bfae_2d816ad8debf) particular designed for embedded security applications and is hardened against a huge variety of attacks which threaten the contained assets.                                                                                                                                                                                                                                                                                                                                                                                                           | SecMC        |
+| <span id="link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b" class="anchor"></span>Secured Microcontroller | [*Secured Microcontroller*](#link37cf2bec_86aa_416a_a8d6_ccef4a5caa6b) is a [*Microcontroller*](#link210b6d30_fc53_4197_bfae_2d816ad8debf) particular designed for embedded security applications and is hardened against a huge variety of attacks which threaten the contained assets.                                                                                                                                                                                                                                                                                                                                                                                                           | SecMC        |
 | System                                                                                           | A system is a set of interacting or interdependent components forming an integrated whole. Every system is circumscribed by its spatial and temporal boundaries, surrounded and influenced by its environment, described by its structure and purpose and expressed in its functioning.                                                                                                                                                                                                                                                                                                                                                                                                           |              |
 | Transport Layer Security                                                                         | **T**ransport **L**ayer **S**ecurity (TLS) protocol provides communications privacy for IP based (e.g. TCP/IP) protocols. The protocol allows client/server applications to communicate in a way that is designed to prevent eavesdropping, tampering or message forgery.                                                                                                                                                                                                                                                                                                                                                                                                                         | TLS          |
 | <span id="link30b70dde_b68d_4fec_b8ca_a3ecfdf9b86f" class="anchor"></span>Trust Anchor           | A [Trust Anchor](#link30b70dde_b68d_4fec_b8ca_a3ecfdf9b86f) represents an authoritative entity via a public key and associated data. The public key is used to verify digital signatures, and the associated data is used to constrain the types of information for which the trust anchor is authoritative.                                                                                                                                                                                                                                                                                                                                                                                      |              |
@@ -7044,7 +7037,7 @@ Vocabulary
 
 1.  All references regarding the OPTIGA™ Trust M version 1 (V1) and version 3 (V3) are given generically without indicating the dedicated version
 
-2.  The default setting is 400 KHz
+2.  The default setting is 400 kHz
 
 3.  In case the most significant bit of Cmd is set to '1', the Last
     Error Code gets flushed implicitly. This feature might be used to
@@ -7094,7 +7087,7 @@ Vocabulary
 19. The DRNG mode gets used to generate the random value
 
 20. The pre-pending optional data length plus the requested length of
-    the random value shall not exceed 66 bytes (in case of OPTIGA™ Trust
+    the random value shall not exceed 66 bytes (in case of OPTIGA™ Trust M 
     M V1, shall not exceed 48 bytes)
 
 21. Length could be 0x0000
@@ -7285,7 +7278,7 @@ Vocabulary
     shared secret until the session context gets flushed
 
 92. Execution of the entire sequence, except the External World timings,
-    with I2C@400KHz & current limitation max. value
+    with I2C@400kHz & current limitation max. value
 
 93. In case of OPTIGA™ Trust M V1, The CalcHash performance is \~12
     Kbytes.
