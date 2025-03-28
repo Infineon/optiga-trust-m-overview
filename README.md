@@ -395,10 +395,10 @@ Currently tested are: *(this will link to the respective PAL implementations. Fo
 
 # Evaluation and development kits
 
-|                          [OPTIGA™ Trust M Shields in Combination with PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus)                           |                                               [OPTIGA™ Trust M Evaluation Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit)                                               |                                        [OPTIGA™ Trust IoT Security Development Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit)                                        |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/PSoC62S2_OPTIGA_Trust_M_MikroBUS.png" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M_Eval_Kit%2002.jpg" width="480"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/optiga_trust_iot_secdevkit.png" width="480"></a> 
-| Active and Preferred | Not Recommended for New Designs | Not Recommended for New Designs |
+|                          [OPTIGA™ Trust M Shields in Combination with PSoC™ 62S2 Wi-Fi BT Pioneer Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus)                           |     [OPTIGA™ Trust M Shields in combination with Raspberry Pi](https://github.com/Infineon/linux-optiga-trust-m) |                                          [OPTIGA™ Trust M Evaluation Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit)                                               |                                        [OPTIGA™ Trust IoT Security Development Kit](https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit)                                        |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_cy8ckit_mikrobus"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/PSoC62S2_OPTIGA_Trust_M_MikroBUS.png" width="300"></a> | <a href="https://github.com/Infineon/linux-optiga-trust-m"><img src="docs/images/optiga_trust_m_rpi_mbus.jpg" width="300"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/xmc4800_evaluation_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/OPTIGA_Trust_M_Eval_Kit%2002.jpg" width="320"></a> | <a href="https://github.com/Infineon/getstarted-optiga-trust-m/tree/main/psoc62_secure_development_kit"><img src="https://github.com/Infineon/Assets/raw/master/Pictures/optiga_trust_iot_secdevkit.png" width="320"></a> 
+| Active and Preferred | Active and Preferred | Not Recommended for New Designs | Not Recommended for New Designs |
 
 
 The preferred evaluation kit for the OPTIGA™ Trust M with a dedicated [Getting Started Guide](https://github.com/Infineon/getstarted-optiga-trust-m) consists of the following components: 
@@ -408,6 +408,11 @@ The preferred evaluation kit for the OPTIGA™ Trust M with a dedicated [Getting
 - Any one of the OPTIGA™ Trust M Shields ([Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go-security-optiga-m/), [OPTIGA™ Trust M Shield](https://www.infineon.com/optiga-trust-m-shield), [OPTIGA™ Trust M Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [OPTIGA™ Trust M MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/))
 
 You will need to order the 3 pieces separately, depending on your chosen configuration.
+
+Similarley, if the targeted platform is based on a (embedded) Linux Controller, it is possible to evaluate the OPTIGA™ Trust M with a Raspberry Pi with the [Linux Toolset and Examples](https://github.com/Infineon/linux-optiga-trust-m). For this, all parts other than the OPTIGA™ Trust M need to be ordered externally:
+- [Raspberry Pi 3, 4 or 5](https://www.raspberrypi.com/products/)
+- Any Raspberry Pi to MikroBUS Adapter (e.g. the [Pi 4 Click Shield](https://www.mikroe.com/pi-4-click-shield))
+- Any one of the OPTIGA™ Trust M Shields ([OPTIGA™ Trust M Shield](https://www.infineon.com/optiga-trust-m-shield), [OPTIGA™ Trust M Express Shield](https://www.infineon.com/optiga-trust-m-express-shield), [OPTIGA™ Trust M MTR Shield](https://www.infineon.com/cms/en/product/evaluation-boards/trust-m-mtr-shield/))
 
 Alternatively, get started with the [OPTIGA™ Trust M evaluation kit (XMC)](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-eval-kit/) or with the [OPTIGA™ Trust IoT Security Development kit](https://www.infineon.com/cms/en/product/evaluation-boards/optiga-trust-m-iot-kit/).
 
@@ -464,7 +469,8 @@ Other downloadable PDF documents can be found below:
 2. [OPTIGA™ Trust M Solution Reference Manual v3.70](docs/pdf/OPTIGA_Trust_M_Solution_Reference_Manual_v3.70.pdf) (PDF)
 3. [OPTIGA™ Trust M Keys and Certificates v3.10](docs/pdf/OPTIGA_Trust_M_Keys_And_Certificates_v3.10.pdf) (PDF)
 4. [OPTIGA™ Trust Config Guide v2.20](docs/pdf/OPTIGA_Trust_M_ConfigGuide_v2.2.pdf) (PDF)
-5. [Infineon I2C protocol specification v2.03](docs/pdf/Infineon_I2C_Protocol_v2.03.pdf) (PDF)
+5. [OPTIGA™ Trust M Release Notes v3.02](docs/pdf/OPTIGA_Trust_M_Release_Notes_v3.02.pdf) (PDF)
+6. [Infineon I2C protocol specification v2.03](docs/pdf/Infineon_I2C_Protocol_v2.03.pdf) (PDF)
 
 ## Useful articles
 
