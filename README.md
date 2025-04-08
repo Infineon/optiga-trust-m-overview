@@ -473,6 +473,8 @@ Other downloadable PDF documents can be found below:
 4. [OPTIGA™ Trust Config Guide v2.20](docs/pdf/OPTIGA_Trust_M_ConfigGuide_v2.2.pdf) (PDF)
 5. [OPTIGA™ Trust M Release Notes v3.02](docs/pdf/OPTIGA_Trust_M_Release_Notes_v3.02.pdf) (PDF)
 6. [Infineon I2C protocol specification v2.03](docs/pdf/Infineon_I2C_Protocol_v2.03.pdf) (PDF)
+5. [OPTIGA™ Trust M Release Notes v3.02](docs/pdf/OPTIGA_Trust_M_Release_Notes_v3.02.pdf) (PDF)
+6. [Infineon I2C protocol specification v2.03](docs/pdf/Infineon_I2C_Protocol_v2.03.pdf) (PDF)
 
 ## Useful articles
 
